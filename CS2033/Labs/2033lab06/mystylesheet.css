@@ -1,0 +1,129 @@
+@charset "utf-8";
+body {
+	background-color: #000;
+	margin: 0px;
+	padding: 0px;
+}
+#wrapper {
+	background-color: #FFF;
+	width: 900px;
+	margin: auto;
+}
+#header {
+	margin: 0px;
+	padding: 0px;
+	height: 142px;
+	background-image: url(banner3.jpg);
+	background-repeat: no-repeat;
+}
+#blank {
+	background-color: #000;
+	margin: 0px;
+	padding: 0px;
+	height: 20px;
+}
+#divider {
+	margin: 0px;
+	padding: 0px;
+	background-image: url(curved_divider.gif);
+	height: 25px;
+}
+#sidebar {
+	margin: 0px;
+	padding: 0px;
+	background-color: #9618EE;
+	width: 155px;
+	float: left;
+	height: 500px;
+}
+#mainContent {
+	background-color: #D9C299;
+	margin: 0px;
+	height: 500px;
+	width: 705px;
+	float: right;
+	padding-top: 0px;
+	padding-right: 20px;
+	padding-bottom: 0px;
+	padding-left: 20px;
+}
+#mainContent a {
+	font-weight: bold;
+	color: #090;
+	text-decoration: none;
+}
+#mainContent a:hover {
+	color: #900;
+	text-decoration: underline;
+}
+#footer {
+	margin: 0px;
+	padding: 0px;
+	clear: both;
+	height: 100px;
+	background-color: #8C6935;
+	color: #fff;
+	text-align: center;
+}
+#footer h1 {
+	font-family: "Comic Sans MS", cursive;
+	font-size: 16px;
+	color: #000;
+}
+.navigation {
+	font-family: Verdana, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+	background-color: #9618ee;
+	display: block;
+	padding: 8px;
+	width: 140px;
+}
+.menu {
+	display: block;
+	padding: 8px;
+	width: 140px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	background-color: #9618ee;
+}
+#footer a:link {
+	color: #fff;
+	text-decoration: underline;
+}
+#footer a:visited {
+	color: #900;
+}
+
+#mainContent h1 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	color: #C00E1E;
+	text-indent: 0px;
+}
+h2 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 16px;
+	font-style: italic;
+	font-weight: bold;
+	color: #009;
+}
+.gamelocation {
+	font-weight: bold;
+	color: #009;
+}
+#mainContent p {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: small;
+	color: #000;
+	padding-left: 40px;
+	padding-right: 40px;
+}

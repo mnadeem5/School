@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>My Slidshow</title>
+<script type="text/javascript">
+<!--
+var image1=new Image()
+image1.src="pic1.jpg"
+var image2=new Image()
+image2.src="pic2.jpg"
+var image3=new Image()
+image3.src="pic3.jpg"
+//-->
+</script>
+
+</head>
+
+<body>
+<a href="javascript:slidlink()"><img src="pic1.jpg" name="slide" width="460" height="385" />
+<script type="text/javascript">
+<!--
+//variable that will increment through the images
+var step=1
+var img=1
+function slideit(){
+//if browser does not support the image object, exit.
+if (!document.images)
+return
+document.images.slide.src=eval("image"+step+".src")
+img=step
+if (step<3)
+step++
+else
+step=1
+//call function "slideit()" every 2.5 seconds
+setTimeout("slideit()",2500)
+}
+slideit()
+function slidlink()
+{
+	if (img==1)
+	window.location="linkforpic1.html"
+	else if (img==2)
+	window.location="http://www.uwo.ca"
+	else if (img==3)
+	window.location="http://www.nvm.com"
+}
+//-->
+</script>
+</body>
+</html>

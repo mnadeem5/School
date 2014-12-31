@@ -1,0 +1,9 @@
+1.	a)	Array outofBounds exception
+	b)	The second one.
+
+2. 	a)	Array outofBounds exception
+	b)	Yes
+	c)	The debug statements wont show.
+3.	a)	change method
+4.	a)	1 try and 2 catch
+5.	a)	NumberFormatException

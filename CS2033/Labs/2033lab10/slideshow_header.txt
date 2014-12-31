@@ -1,0 +1,11 @@
+
+<script type="text/javascript">
+<!--
+var image1=new Image()
+image1.src="xxx.gif"
+var image2=new Image()
+image2.src="yyy.gif"
+var image3=new Image()
+image3.src="zzz.gif"
+//-->
+</script>

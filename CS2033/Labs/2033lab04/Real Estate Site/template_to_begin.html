@@ -1,0 +1,37 @@
+<html>
+<style type="text/css">
+body,td,th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #000;
+}
+</style>
+  <title>John G. Smith - Customer Inquiry</title>
+<body>
+    
+      <h2><strong>John G. Smith</strong><br />
+        Sales Representative<br />
+  Home Marketing Inc. Brokerage</h2>
+  <p><strong>CLIENT INQUIRY:</strong></p>
+  <table cellpadding="10" cellspacing="0">
+        <tr>
+          <td width="138" valign="top">Name:</td>
+          <td width="480" valign="top">{{ first_name }} {{ last_name }}</td>
+        </tr>
+        <tr>
+          <td valign="top">Customer ID:</td>
+          <td valign="top">{{ cust_num }}</td>
+        </tr>
+        <tr>
+          <td valign="top">Problem Category:</td>
+          <td valign="top">{{ category }}</td>
+        </tr>
+        <tr>
+          <td valign="top">Description:</td>
+          <td valign="top">{{ desc }}
+          
+          </td>
+        </tr>
+      </table>
+  </body>
+</html>
