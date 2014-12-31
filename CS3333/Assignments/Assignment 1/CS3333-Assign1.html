@@ -1,0 +1,44 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1"></head><body bgcolor="#FFFFFF"><font face="Verdana">
+
+<title>CS3333 ASSIGNMENT 1</title>
+
+
+
+<hr>
+<center>
+<h1><p><b>CS3333 ASSIGNMENT 1</b></p></h1>
+<hr>
+</center>
+
+<p></p><center>
+<i>Due date: Friday Oct. 3rd 2014, at 11:55pm<br>
+Weight: 10% of final mark</i><br>
+</center>
+<p>The purpose of this assignment is to detect areas of large motions within a pair of images with the use of Gaussian pyramids, 
+image background subtraction, and morphological image operators. Given two images from a sequence, the OpenCV/C/C++ program must
+perform the following operations:
+
+<ul>
+<li>A 4-level high Gaussian pyramid is constructed for each input image (default parameters for the Gaussian mask must be used)
+<p>
+<li>At the highest level of both pyramids (where resolution is lowest), the two images are turned into grayscale images and 
+    an absolute difference image is computed.
+<p>
+<li>This difference image is thresholded (with minimum and maximum thresholds of 75 and 255) into a binary image (either a pixel is black 
+    or is white).
+<p>
+<li>The image size is converted back to the resolution of the input images using nearest neighbor as an interpolation method.
+<p>
+<li>A morphological operator known as dilation is used on this image (with default kernel and 25 iterations) in order to dilate the area
+<p>
+<li>The image is then used as a binary mask to perform a logical and between the original image and itself. 
+</ul>
+<p>
+The input images are <a href="http://www.csd.uwo.ca/faculty/beau/CS3333/a1-image1.png">image 1</a> and 
+<a href="http://www.csd.uwo.ca/faculty/beau/CS3333/a1-image2.png">image 2</a>. The resulting image should closely resemble
+<a href="http://www.csd.uwo.ca/faculty/beau/CS3333/a1-result.png">this particular one</a>.
+<p>
+Before submitting your assignment, please refer to the 
+<a href="http://www.csd.uwo.ca/faculty/beau/CS3333/CS3333-Marking-Scheme.html">assignment marking scheme</a> and <a href="http://www.csd.uwo.ca/faculty/beau/CS3333/CS3333-Submission.html">submission guidelines</a>.
+</body></html>

@@ -1,0 +1,191 @@
+Server:
+	- Name may not exceed 63 characters.
+
+Channels
+	- Names must not exceed 50 characters.
+	- Names must start with '&', or '#', or '+', or '!'.
+	- Names must not contain a space, (' '), control G, (^G), or a comma, (',').
+	- Names are case sensetive.
+
+Massages
+	- A massage consts of three parts:
+		- prefix (optional): indicated by a ":" at the beginning of the message.
+			*Clients should not use prefixes.
+		- command: must be a valid IRC command or a 3 digit number represented in ASCII text.
+		- command parameters
+	- Massage must be always terminated with cr-lf(carriage return and line feed).
+	- Massages must not exceed a length of 512 characets.
+	- NULL is not allowed within messages.
+
+Connection Registration Messages(Implemented in connection_messages)
+	
+	- Password Message:
+		Command: PASS
+		Parameters: <password>
+		Ex: "PASS password\r\n"
+
+	- Nick Message(Nickname Message):
+		Command: NICK
+		Parameters: <nickname>
+		Ex: "NICK Saad\r\n"
+
+	- User Message:
+		Command: USER
+		Parameters: <nickname> <mode> <unused> :<realname>
+		Ex: "USER Zaid 0 * :Zaid Albirawi\r\n"
+
+	- User Mode Message:
+		Command: MODE
+		Parameters: <nickname> <(+,-)(i, w, o, O, r)>
+		Ex: "MODE Saad -i\r\n"
+
+	- Quit Message:
+		Command: QUIT
+		Parameters: [:<message>]				*[] mean not a required argument
+		Ex: "QUIT :Going to bed, good night.\r\n"
+
+Chnnel Operation Messages(Implemented in channel_messages)
+
+	- Join Message:
+		Command: JOIN
+		Parameters: {<channel>} {<key>}			**We can have multiple channels and
+												keys, they must be seprated with ","
+												but no spaces. *{} means can have multiple
+		Ex: "JOIN #CS3357\r\n"
+		Ex: "JOIN #CS3357 KeytoNetworks\r\n"
+		Ex: "JOIN #CS3357,#CS2212 KeytoNetworks,HateGroups\r\n"
+		Ex: "JOIN #CS3357,#CS2212 KeytoNetworks\r\n"
+		Ex: "JOIN #CS3357,#CS2212 ,HateGroups\r\n"
+
+	- Part Message:
+		Command: PART
+		Parameters: {<channel>} [:<message>]	Can also part mutliple messages with
+												the use of "," **no spaces between the
+												list items.
+		Ex: "PART #CS3357\r\n"
+		Ex: "PART #CS3357 :sleep is for the weak\r\n"
+		Ex: "PART #CS3357,#CS2212 :dropping out\r\n"
+		Ex: "PART #CS3357 :sleep is for the weak\r\n"
+
+	-  Topic Message:
+		Command: TOPIC
+		Parameters: <channel> [:<topic>]		*if a topic is included then the server
+												changes the channels topic. However if the topic field is empty then the server will send back the current channel's topic.
+		Ex: "TOPIC #CS3357\r\n"
+		Ex: "TOPIC #CS3357 :I am getting tired of this\r\n"
+
+	-  Names Message:
+		Command: NAMES
+		Parameters: {[<channel>]}				*if a channel is specified then show
+												that channel's participants. If no channels are specified then displace all visible users along with their channels.
+		Ex: "NAMES\r\n"
+		Ex: "NAMES #CS3357\r\n"
+		Ex: "NAMES #CS3357,#CS2212\r\n"
+
+	-  List Message:
+		Command: LIST
+		Parameters: {[<channel>]}				*if there is no channel parameter then
+												the server will return all channels on the server along with their topic, if there are then it returns the topics of those channels.
+		Ex: "LIST\r\n"
+		Ex: "LIST #CS3357\r\n"
+		Ex: "LIST #CS3357,#CS2212\r\n"
+
+	-  Invite Message:
+		Command: INVITE
+		Parameters: <nickname> <channel>
+		Ex: "INVITE Saad #CS3357\r\n"
+
+	-  Kick Message:
+		Command: KICK
+		Parameters: <channel> <nickname>
+		Ex: "KICK Saad #CS3357\r\n"
+
+Messages(Implemented in messages)
+
+	-  Private Message:
+		Command: PRIVMSG
+		Parameters: <traget> :<message>			*target can either be a nickname or a
+												channel name.
+		Ex: "PRIVMSG Saad :Hello Saad!\r\n"
+		Ex: "PRIVMSG #CS3357 :Hello World!\r\n"
+
+Command Replay Messages
+
+	Sever successful registration:
+		RPL_WELCOME 	001 "Welcome to the Internet Relay Network <nick>!<user>@<host>"
+	    RPL_YOURHOST	002 "Your host is <servername>, running version <ver>"
+	    RPL_CREATED		003 "This server was created <date>"
+	    RPL_MYINFO		004 "<servername> <version> <available user modes> <available channel modes>"
+
+	Replies to the AWAY command
+        RPL_AWAY 		301 "<nick> :<away message>"
+        RPL_UNAWAY 		305 ":You are no longer marked as being away"
+        RPL_NOWAWAY		306 ":You have been marked as being away"
+
+    Replies to the LIST command
+       	RPL_LIST 		322 "<channel> <# visible> :<topic>"
+       	RPL_LISTEND 		323 ":End of LIST"
+
+    Replies to the TOPIC command
+       	RPL_NOTOPIC 		331 "<channel> :No topic is set"
+       	RPL_TOPIC 		332 "<channel> :<topic>"
+
+    Replies to the INVITE command
+    	RPL_INVITING		341 "<channel> <nick>"
+
+    Replies to the NAMES command
+       	RPL_NAMREPLY 		353 "( "=" / "*" / "@" ) <channel> :[ "@" / "+" ] <nick> *( " " [ "@" / "+" ] <nick> )
+       	RPL_ENDOFNAMES 		366 "<channel> :End of NAMES list"
+
+    Replies to the any dropped command
+		RPL_TRYAGAIN 		263 "<command> :Please wait a while and try again." 
+
+Error Reply Messages
+
+    ERR_NOSUCHNICK 			401 "<nickname> :No such nick/channel"
+	ERR_NOSUCHSERVER 		402 "<server name> :No such server"
+	ERR_NOSUCHCHANNEL		403 "<channel name> :No such channel"
+	ERR_CANNOTSENDTOCHAN	404 "<channel name> :Cannot send to channel"
+	ERR_TOOMANYCHANNELS		405 "<channel name> :You have joined too many channels"
+	ERR_TOOMANYTARGETS 		407 "<target> :<error code> recipients. <abort message>"
+	ERR_NORECIPIENT			411 ":No recipient given (<command>)"
+	ERR_NOTEXTTOSEND 		412 ":No text to send"
+	ERR_UNKNOWNCOMMAND 		421 "<command> :Unknown command"
+	ERR_NOMOTD				422 ":MOTD File is missing"
+	ERR_NONICKNAMEGIVEN		431 ":No nickname given"
+	ERR_ERRONEUSNICKNAME	432 "<nick> :Erroneous nickname"
+	ERR_NICKNAMEINUSE		433 "<nick> :Nickname is already in use"
+	ERR_NICKCOLLISION		436 "<nick> :Nickname collision KILL from <user>@<host>"
+	ERR_UNAVAILRESOURCE		437 "<nick/channel> :Nick/channel is temporarily unavailable"
+	ERR_USERNOTINCHANNEL	441 "<nick> <channel> :They aren't on that channel"
+	ERR_NOTONCHANNEL		442 "<channel> :You're not on that channel"
+	ERR_USERONCHANNEL 		443 "<user> <channel> :is already on channel"
+	ERR_NOLOGIN				444 "<user> :User not logged in"
+	ERR_USERSDISABLED		446 ":USERS has been disabled"
+	ERR_NOTREGISTERED		451 ":You have not registered"
+	ERR_NEEDMOREPARAMS		461 "<command> :Not enough parameters"
+	ERR_ALREADYREGISTRED	462 ":Unauthorized command (already registered)"
+	ERR_NOPERMFORHOST		463 ":Your host isn't among the privileged"
+	ERR_PASSWDMISMATCH		464 ":Password incorrect"
+	ERR_KEYSET				467 "<channel> :Channel key already set"
+    ERR_CHANNELISFULL 		471 "<channel> :Cannot join channel (+l)"
+    ERR_UNKNOWNMODE			472 "<char> :is unknown mode char to me for <channel>"
+    ERR_INVITEONLYCHAN		473 "<channel> :Cannot join channel (+i)"
+    ERR_BANNEDFROMCHAN 		474 "<channel> :Cannot join channel (+b)"
+    ERR_BADCHANNELKEY		475 "<channel> :Cannot join channel (+k)"
+	ERR_NOCHANMODES			477 "<channel> :Channel doesn't support modes"
+    ERR_BANLISTFULL 		478 "<channel> <char> :Channel list is full"
+	ERR_NOPRIVILEGES 		481 ":Permission Denied- You're not an IRC operator"
+	ERR_CHANOPRIVSNEEDED 	482 "<channel> :You're not channel operator"
+	ERR_RESTRICTED 			484 ":Your connection is restricted!"
+
+GUI functions:
+	printMessage()
+	printWarningMessage()
+	printErrorMessage()
+	printEnterMessage()
+	printLeaveMessage()
+	printNickChangeMessage
+	printDebugMessage()
+
+	populateUsers()
