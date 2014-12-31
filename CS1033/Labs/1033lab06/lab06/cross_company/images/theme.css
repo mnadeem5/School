@@ -1,0 +1,84 @@
+BODY {
+	FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif; bgcolor: #FAFAFA; text: #000000
+}
+H1 {
+	FONT-WEIGHT: bold; FONT-SIZE: 24pt; COLOR: #000080; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+H2 {
+	FONT-WEIGHT: bold; FONT-SIZE: 18pt; COLOR: #000080; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+H3 {
+	FONT-WEIGHT: bold; FONT-SIZE: 14pt; COLOR: #000080; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+H4 {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; COLOR: #000080; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+H5 {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; COLOR: #000080; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+H6 {
+	FONT-WEIGHT: bold; FONT-SIZE: 8pt; COLOR: #000080; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+h1b {
+	FONT-WEIGHT: bold; FONT-SIZE: 24pt; COLOR: #000000; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+h2b {
+	FONT-WEIGHT: bold; FONT-SIZE: 18pt; COLOR: #000000; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+h3b {
+	FONT-WEIGHT: bold; FONT-SIZE: 14pt; COLOR: #000000; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+h4b {
+	FONT-WEIGHT: bold; FONT-SIZE: 12pt; COLOR: #000000; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+h5b {
+	FONT-WEIGHT: normal; FONT-SIZE: 10pt; COLOR: #000000; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+h6b {
+	FONT-WEIGHT: normal; FONT-SIZE: 8pt; COLOR: #000000; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+TEXTAREA {
+	BORDER-RIGHT: 1pt solid; BORDER-TOP: 1pt solid; FONT-SIZE: 8pt; BORDER-LEFT: 1pt solid; BORDER-BOTTOM: 1pt solid; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+FIELDSET {
+	BORDER-RIGHT: 1pt solid; BORDER-TOP: 1pt solid; FONT-SIZE: 8pt; BORDER-LEFT: 1pt solid; BORDER-BOTTOM: 1pt solid; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+LEGEND {
+	FONT-SIZE: 8pt; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+SELECT {
+	BORDER-RIGHT: 1pt solid; BORDER-TOP: 1pt solid; FONT-SIZE: 8pt; BORDER-LEFT: 1pt solid; BORDER-BOTTOM: 1pt solid; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+TABLE {
+	FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+CAPTION {
+	FONT-SIZE: 12pt; FONT-STYLE: normal; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+TH {
+	FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+DD {
+	FONT-WEIGHT: normal; FONT-SIZE: 12px; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+TD {
+	FONT-WEIGHT: normal; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+P {
+	FONT-SIZE: 10pt; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif; TEXT-ALIGN: left
+}
+UL {
+	FONT-SIZE: 10pt; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+LI {
+	FONT-SIZE: 10pt; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+pb {
+	FONT-WEIGHT: bold; FONT-SIZE: 10pt; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif; TEXT-ALIGN: left
+}
+prod_name {
+	FONT-SIZE: 10pt; COLOR: #000080; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}
+BLOCKQUOTE {
+	FONT-WEIGHT: normal; FONT-SIZE: 10pt; FONT-FAMILY: Verdana, Arial, Geneva, Helvetica, Sans Serif
+}

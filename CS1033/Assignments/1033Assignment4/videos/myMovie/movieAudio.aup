@@ -1,0 +1,85 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="movieAudio_data" version="1.3.0" audacityversion="2.0.2" sel0="0.0000000000" sel1="0.0000000000" vpos="0" h="0.0000000000" zoom="12.9148067661" rate="44100.0">
+	<tags>
+		<tag name="major_brand" value="mp42"/>
+		<tag name="Software" value="Lavf52.111.0"/>
+		<tag name="compatible_brands" value="isomavc1mp42"/>
+		<tag name="minor_version" value="0"/>
+		<tag name="Encoding time" value="2009-01-06 10:27:13"/>
+	</tags>
+	<wavetrack name="Fatboy Slim - Right Here, Right Now" channel="0" linked="1" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="2566885">
+				<waveblock start="0">
+					<simpleblockfile filename="e00001d6.au" len="262144" min="-0.007242" max="0.007586" rms="0.001382"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="e0000083.au" len="262144" min="-0.218877" max="0.237006" rms="0.030582"/>
+				</waveblock>
+				<waveblock start="524288">
+					<simpleblockfile filename="e00005ae.au" len="262144" min="-0.300987" max="0.303631" rms="0.080357"/>
+				</waveblock>
+				<waveblock start="786432">
+					<simpleblockfile filename="e0000329.au" len="262144" min="-0.280869" max="0.321497" rms="0.079182"/>
+				</waveblock>
+				<waveblock start="1048576">
+					<simpleblockfile filename="e00000bb.au" len="262144" min="-0.287395" max="0.334078" rms="0.080376"/>
+				</waveblock>
+				<waveblock start="1310720">
+					<simpleblockfile filename="e0000b23.au" len="262144" min="-0.316119" max="0.338938" rms="0.079045"/>
+				</waveblock>
+				<waveblock start="1572864">
+					<simpleblockfile filename="e00005c4.au" len="262144" min="-0.379074" max="0.358166" rms="0.084378"/>
+				</waveblock>
+				<waveblock start="1835008">
+					<simpleblockfile filename="e000096f.au" len="262144" min="-0.386875" max="0.370408" rms="0.09428"/>
+				</waveblock>
+				<waveblock start="2097152">
+					<simpleblockfile filename="e00005eb.au" len="262144" min="-0.532506" max="0.50373" rms="0.118344"/>
+				</waveblock>
+				<waveblock start="2359296">
+					<simpleblockfile filename="e0000105.au" len="207589" min="-0.478682" max="0.510389" rms="0.082446"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="Fatboy Slim - Right Here, Right Now" channel="1" linked="0" mute="0" solo="0" height="150" minimized="0" isSelected="1" rate="44100" gain="1.0" pan="0.0">
+		<waveclip offset="0.00000000">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="2566885">
+				<waveblock start="0">
+					<simpleblockfile filename="e00002db.au" len="262144" min="-0.006153" max="0.006092" rms="0.00111"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="e0000157.au" len="262144" min="-0.324789" max="0.284103" rms="0.03543"/>
+				</waveblock>
+				<waveblock start="524288">
+					<simpleblockfile filename="e0000f8d.au" len="262144" min="-0.352162" max="0.359383" rms="0.095084"/>
+				</waveblock>
+				<waveblock start="786432">
+					<simpleblockfile filename="e0000af8.au" len="262144" min="-0.343747" max="0.381878" rms="0.095959"/>
+				</waveblock>
+				<waveblock start="1048576">
+					<simpleblockfile filename="e00000a1.au" len="262144" min="-0.355915" max="0.438543" rms="0.096527"/>
+				</waveblock>
+				<waveblock start="1310720">
+					<simpleblockfile filename="e0000bb1.au" len="262144" min="-0.405998" max="0.419494" rms="0.095196"/>
+				</waveblock>
+				<waveblock start="1572864">
+					<simpleblockfile filename="e000086e.au" len="262144" min="-0.413213" max="0.414599" rms="0.097524"/>
+				</waveblock>
+				<waveblock start="1835008">
+					<simpleblockfile filename="e000007e.au" len="262144" min="-0.389385" max="0.388687" rms="0.098763"/>
+				</waveblock>
+				<waveblock start="2097152">
+					<simpleblockfile filename="e0000358.au" len="262144" min="-0.471618" max="0.550563" rms="0.113262"/>
+				</waveblock>
+				<waveblock start="2359296">
+					<simpleblockfile filename="e000054c.au" len="207589" min="-0.415874" max="0.5224" rms="0.083189"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>
