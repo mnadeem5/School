@@ -1,0 +1,15 @@
+/*
+ * 19.c
+ *
+ *  Created on: Dec 6, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+
+int main (int argc, char *argv[])
+{
+	char** p=&argv[argc-1];
+	while(p>argv)puts(*p--);
+	return 0;
+}

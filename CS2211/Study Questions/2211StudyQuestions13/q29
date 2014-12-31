@@ -1,0 +1,18 @@
+/*
+ * q29.c
+ *
+ *  Created on: Dec 6, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+
+int main(void)
+{
+	char *s[5] = {"ABCDEF","GHIJ", "KLMNOPQ", "RSTUV", "WXYZ"};
+	//puts(&(*s)[2]);
+	//puts(*(s+2));
+	//puts((*s+2));
+	puts(*(s+4)+3);
+	return 0;
+}

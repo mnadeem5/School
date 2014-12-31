@@ -1,0 +1,18 @@
+/*
+ * q30.c
+ *
+ *  Created on: Dec 6, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+
+int main(void)
+{
+	char *s[5] = {"ABCDEF","GHIJ", "KLMNOPQ", "RSTUV", "WXYZ"};
+	char **p[5] = { &s[4], &s[3], &s[0], &s[2], &s[1] };
+	puts(&(**p[3]));
+	puts(*p[3]);
+	puts(&((**p)[3]));
+	return 0;
+}

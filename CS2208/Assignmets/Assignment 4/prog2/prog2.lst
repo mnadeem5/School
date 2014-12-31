@@ -1,0 +1,538 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             prog2, CODE, READWRITE
+    2 00000000                 ENTRY
+    3 00000000         
+    4 00000000 E28F0E13        ADR              r0, STRING2 ;Identifies the poi
+                                                            nter the free memor
+                                                            y location   
+    5 00000004 E59F10EC        LDR              r1, =STRING1 ;Loads the pointer
+                                                             of STRING1 to r1  
+                                                             
+    6 00000008         
+    7 00000008 E3A07074        MOV              r7, #0x74   ;Moves the value of
+                                                             the character "t" 
+                                                            in hexadecimal into
+                                                             r7
+    8 0000000C E3A08068        MOV              r8, #0x68   ;Moves the value of
+                                                             the character "h" 
+                                                            in hexadecimal into
+                                                             r8
+    9 00000010 E3A09065        MOV              r9, #0x65   ;Moves the value of
+                                                             the character "e" 
+                                                            in hexadecimal into
+                                                             r9
+   10 00000014         LOOP
+   11 00000014 E7D13004        LDRB             r3, [r1, r4] ;Loads a byte into
+                                                             r3 from the memory
+                                                             location appointed
+                                                             by r1 in position 
+                                                            r4
+   12 00000018         
+   13 00000018 E1530007 
+                       T       CMP              r3, r7      ;Checks if the valu
+                                                            e stored in r3 is "
+                                                            t"
+   14 0000001C 1A00002A        BNE              STORE       ;If it is not then 
+                                                            it branches to STOR
+                                                            E
+   15 00000020         
+   16 00000020 E3540000        CMP              r4, #0      ;Checks if r4 conta
+                                                            ins 0
+   17 00000024 1A000000        BNE              CHECK       ;If it does, then i
+                                                            t branches to CHECK
+                                                            
+   18 00000028 EA000004        B                H           ;Else it branches t
+                                                            o H
+   19 0000002C         
+   20 0000002C         CHECK                                ;Tests if the chara
+                                                            cter previous to "t
+                                                            " is a space
+   21 0000002C E244B001        SUB              r11, r4, #1 ;Subtracts 1 from t
+                                                            he value of r4 and 
+                                                            stores it into r11.
+                                                            
+   22 00000030 E7D1A00B        LDRB             r10, [r1, r11] ;Loads a byte in
+                                                            to r10 from the mem
+                                                            ory location appoin
+                                                            ted by r1 in positi
+                                                            on r11
+   23 00000034 E35A0020        CMP              r10, #0x20  ;Compares the value
+                                                             of r10 to 0x20, wh
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+                                                            ich is the equal to
+                                                             the character " " 
+                                                            in hexadecimal
+   24 00000038 0A000000        BEQ              H           ;If it is equal the
+                                                            n branch to H
+   25 0000003C EA000022        B                STORE       ;Else it branches t
+                                                            o STORE
+   26 00000040         
+   27 00000040 E2844001 
+                       H       ADD              r4, r4, #1  ;Increments r4.
+   28 00000044 E7D13004        LDRB             r3, [r1, r4] ;Loads a byte into
+                                                             r3 from the memory
+                                                             location appointed
+                                                             by r1 in position 
+                                                            r4
+   29 00000048         
+   30 00000048         ;CMP  r3, r2          ;Compares the newly loaded byte to
+                        0x00, null.
+   31 00000048         ;BEQ  DONE          ;Ends the program
+   32 00000048         
+   33 00000048 EB000027        BL               COM
+   34 0000004C         
+   35 0000004C E1530008        CMP              r3, r8      ;Compares r3 to r8,
+                                                             which contains the
+                                                             hexadecimal value 
+                                                            of the character "h
+                                                            "
+   36 00000050 0A000002        BEQ              E           ;If it is equal, br
+                                                            anch to E
+   37 00000054 E7C07005        STRB             r7, [r0, r5] ;Else store the by
+                                                            te containing the v
+                                                            alue of the charact
+                                                            er "t" in the memor
+                                                            y
+   38 00000058 E2855001        ADD              r5, r5, #1  ;Increments r5
+   39 0000005C 1A00001A        BNE              STORE       ;If it is not then 
+                                                            it branches to STOR
+                                                            E
+   40 00000060         
+   41 00000060 E2844001 
+                       E       ADD              r4, r4, #1  ;Increments r4.
+   42 00000064 E7D13004        LDRB             r3, [r1, r4] ;Loads a byte into
+                                                             r3 from the memory
+                                                             location appointed
+                                                             by r1 in position 
+                                                            r4
+   43 00000068         
+   44 00000068         ;CMP  r3, r2          ;Compares the newly loaded byte to
+                        0x00, null.
+   45 00000068         ;BEQ  DONE          ;Ends the program
+   46 00000068         
+   47 00000068 EB00001F        BL               COM
+   48 0000006C         
+   49 0000006C E1530009        CMP              r3, r9      ;Compares r3 to r9,
+                                                             which contains the
+                                                             hexadecimal value 
+                                                            of the character "e
+                                                            "
+   50 00000070 0A000004        BEQ              SN          ;If it is equal, br
+
+
+
+ARM Macro Assembler    Page 3 
+
+
+                                                            anch to SN
+   51 00000074 E7C07005        STRB             r7, [r0, r5] ;Else store the by
+                                                            te containing the v
+                                                            alue of the charact
+                                                            er "t" in the memor
+                                                            y
+   52 00000078 E2855001        ADD              r5, r5, #1  ;Increments r5
+   53 0000007C E7C08005        STRB             r8, [r0, r5] ;Store the byte co
+                                                            ntaining the value 
+                                                            of the character "h
+                                                            " in the memory
+   54 00000080 E2855001        ADD              r5, r5, #1  ;Increments r5
+   55 00000084 1A000010        BNE              STORE       ;If it is not then 
+                                                            it branches to STOR
+                                                            E
+   56 00000088         
+   57 00000088 E2844001 
+                       SN      ADD              r4, r4, #1  ;Increments r4
+   58 0000008C E7D13004        LDRB             r3, [r1, r4] ;Loads a byte into
+                                                             r3 from the memory
+                                                             location appointed
+                                                             by r1 in position 
+                                                            r4
+   59 00000090 E1530002        CMP              r3, r2      ;Compares the newly
+                                                             loaded byte to 0x0
+                                                            0, null.
+   60 00000094 0A000000        BEQ              NUL         ;If equal then, bra
+                                                            nch to NUL
+   61 00000098 EA000001        B                SPC         ;Else branch to SPC
+                                                            
+   62 0000009C E7C03005 
+                       NUL     STRB             r3, [r0, r5] ;Stores the null v
+                                                            alue as the last ch
+                                                            aracter of the stri
+                                                            ng.
+   63 000000A0 EA00000F        B                DONE        ;Ends the program
+   64 000000A4 E3530020 
+                       SPC     CMP              r3, #0x20   ;Checks if the cont
+                                                            ent of r3 is the ch
+                                                            aracter " "
+   65 000000A8 0A000007        BEQ              STORE       ;If it is then it b
+                                                            ranches to STORE
+   66 000000AC EAFFFFFF        B                DONT        ;Else, branches to 
+                                                            DONT
+   67 000000B0         
+   68 000000B0 E7C07005 
+                       DONT    STRB             r7, [r0, r5] ;Stores the byte c
+                                                            ontaining the value
+                                                             of the character "
+                                                            t" in the memory
+   69 000000B4 E2855001        ADD              r5, r5, #1  ;Increments r5
+   70 000000B8 E7C08005        STRB             r8, [r0, r5] ;Stores the byte c
+                                                            ontaining the value
+                                                             of the character "
+                                                            h" in the memory
+   71 000000BC E2855001        ADD              r5, r5, #1  ;Increments r5
+   72 000000C0 E7C09005        STRB             r9, [r0, r5] ;Stores the byte c
+                                                            ontaining the value
+                                                             of the character "
+
+
+
+ARM Macro Assembler    Page 4 
+
+
+                                                            e" in the memory
+   73 000000C4 E2855001        ADD              r5, r5, #1  ;Increments r5
+   74 000000C8 EAFFFFFF        B                STORE       ;Branches to STORE
+   75 000000CC         
+   76 000000CC E7C03005 
+                       STORE   STRB             r3, [r0, r5] ;Stores a the byte
+                                                             contained in r3 in
+                                                            to r0
+   77 000000D0 E2855001        ADD              r5, r5, #1  ;Increments r5
+   78 000000D4         
+   79 000000D4 E2844001 
+                       NEXT    ADD              r4, r4, #1  ;Increments r4  
+   80 000000D8 E7D16004        LDRB             r6, [r1, r4] ;Loads a byte into
+                                                             r6 from the memory
+                                                             location appointed
+                                                             by r1 in position 
+                                                            r4     
+   81 000000DC E1560002        CMP              r6, r2      ;Compares r6 to  r2
+                                                            , which contains th
+                                                            e hexadecimal value
+                                                             0x0, which equals 
+                                                            to the character "n
+                                                            ull"  
+   82 000000E0 1AFFFFCB        BNE              LOOP        ;If it is not then 
+                                                            keep looping.      
+                                                            
+   83 000000E4         
+   84 000000E4 E7C02005 
+                       DONE    STRB             r2, [r0, r5] ;Stores a the byte
+                                                             contained in r2, "
+                                                            null", into r0
+   85 000000E8         
+   86 000000E8 EAFFFFFE 
+                       ILOOP   B                ILOOP
+   87 000000EC         
+   88 000000EC E1530002 
+                       COM     CMP              r3, r2
+   89 000000F0 0AFFFFFB        BEQ              DONE
+   90 000000F4 E1A0F00E        MOV              PC, lr
+   91 000000F8         
+   92 000000F8 00000000        AREA             prog2, DATA, READWRITE
+   93 000000FC 74 68 65 
+              69 72 20 
+              61 6E 64 
+              20 74 68 
+              65 79 20 
+              73 61 69 
+              64 20 61 
+              6E 6F 74 
+              68 65 72 
+              20 74 68 
+              65 20 63 
+              6C 6F 74 
+              68 65 20 
+              74 68 6F 
+              73 65 20 
+              74 68 65 
+              20 74 68 
+              20 74 20 
+
+
+
+ARM Macro Assembler    Page 5 
+
+
+              74 68 65 STRING1 DCB              "their and they said another th
+e clothe those the th t the" 
+                                                            ;String1 
+   94 00000135 00      EoS     DCB              0x00        ;end of string1 
+   95 00000136 00 00           align
+   96 00000138 00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+
+
+
+ARM Macro Assembler    Page 6 
+
+
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 STRING2 space            0xFF
+   97 00000237                 END
+Command Line: --debug --xref --bi --apcs=interwork --depend=.\prog2.d -o.\prog2
+.o -IC:\Keil\ARM\RV31\INC -IC:\Keil\ARM\CMSIS\Include --predefine="__EVAL SETA 
+1" --list=.\prog2.lst prog2.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+CHECK 0000002C
+
+Symbol: CHECK
+   Definitions
+      At line 20 in file prog2.s
+   Uses
+      At line 17 in file prog2.s
+Comment: CHECK used once
+COM 000000EC
+
+Symbol: COM
+   Definitions
+      At line 88 in file prog2.s
+   Uses
+      At line 33 in file prog2.s
+      At line 47 in file prog2.s
+
+DONE 000000E4
+
+Symbol: DONE
+   Definitions
+      At line 84 in file prog2.s
+   Uses
+      At line 63 in file prog2.s
+      At line 89 in file prog2.s
+
+DONT 000000B0
+
+Symbol: DONT
+   Definitions
+      At line 68 in file prog2.s
+   Uses
+      At line 66 in file prog2.s
+Comment: DONT used once
+E 00000060
+
+Symbol: E
+   Definitions
+      At line 41 in file prog2.s
+   Uses
+      At line 36 in file prog2.s
+Comment: E used once
+EoS 00000135
+
+Symbol: EoS
+   Definitions
+      At line 94 in file prog2.s
+   Uses
+      None
+Comment: EoS unused
+H 00000040
+
+Symbol: H
+   Definitions
+      At line 27 in file prog2.s
+   Uses
+      At line 18 in file prog2.s
+      At line 24 in file prog2.s
+
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Relocatable symbols
+
+ILOOP 000000E8
+
+Symbol: ILOOP
+   Definitions
+      At line 86 in file prog2.s
+   Uses
+      At line 86 in file prog2.s
+Comment: ILOOP used once
+LOOP 00000014
+
+Symbol: LOOP
+   Definitions
+      At line 10 in file prog2.s
+   Uses
+      At line 82 in file prog2.s
+Comment: LOOP used once
+NEXT 000000D4
+
+Symbol: NEXT
+   Definitions
+      At line 79 in file prog2.s
+   Uses
+      None
+Comment: NEXT unused
+NUL 0000009C
+
+Symbol: NUL
+   Definitions
+      At line 62 in file prog2.s
+   Uses
+      At line 60 in file prog2.s
+Comment: NUL used once
+SN 00000088
+
+Symbol: SN
+   Definitions
+      At line 57 in file prog2.s
+   Uses
+      At line 50 in file prog2.s
+Comment: SN used once
+SPC 000000A4
+
+Symbol: SPC
+   Definitions
+      At line 64 in file prog2.s
+   Uses
+      At line 61 in file prog2.s
+Comment: SPC used once
+STORE 000000CC
+
+Symbol: STORE
+   Definitions
+      At line 76 in file prog2.s
+   Uses
+      At line 14 in file prog2.s
+      At line 25 in file prog2.s
+      At line 39 in file prog2.s
+      At line 55 in file prog2.s
+      At line 65 in file prog2.s
+
+
+
+ARM Macro Assembler    Page 3 Alphabetic symbol ordering
+Relocatable symbols
+
+      At line 74 in file prog2.s
+
+STRING1 000000FC
+
+Symbol: STRING1
+   Definitions
+      At line 93 in file prog2.s
+   Uses
+      At line 5 in file prog2.s
+Comment: STRING1 used once
+STRING2 00000138
+
+Symbol: STRING2
+   Definitions
+      At line 96 in file prog2.s
+   Uses
+      At line 4 in file prog2.s
+Comment: STRING2 used once
+T 00000018
+
+Symbol: T
+   Definitions
+      At line 13 in file prog2.s
+   Uses
+      None
+Comment: T unused
+prog2 00000000
+
+Symbol: prog2
+   Definitions
+      At line 1 in file prog2.s
+   Uses
+      None
+Comment: prog2 unused
+18 symbols
+351 symbols in table

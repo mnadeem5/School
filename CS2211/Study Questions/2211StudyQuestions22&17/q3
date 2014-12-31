@@ -1,0 +1,24 @@
+/*
+ * q3.c
+ *
+ *  Created on: Dec 7, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+#include<stdlib.h>
+
+int *create_array(int n, int initial_value);
+
+int main(void)
+{
+	create_array(10, 1);
+	return 0;
+}
+
+int *create_array(int n, int initial_value)
+{
+	int* array=malloc(sizeof(initial_value)*n), *ptr=array;
+	while(ptr-array<n)*ptr++=initial_value;
+	return array;
+}

@@ -1,0 +1,24 @@
+/*
+q14.c
+ *
+ *  Created on: Dec 2, 2013
+ *      Author: ZiZo
+ */
+#include<stdio.h>
+int *find_largest (int a[], int n);
+
+int main (void)
+{
+	int a[]={1,5,6,3,15};
+	int n=5, *p;
+	p=find_largest(a, n);
+	printf("%d", *p);
+	return 0;
+}
+
+int *find_largest (int a[], int n)
+{
+	int *p, *largest=a;
+	for (p=a; p<a+n; p++)if (*p>*largest)*largest=*p;
+	return largest;
+}

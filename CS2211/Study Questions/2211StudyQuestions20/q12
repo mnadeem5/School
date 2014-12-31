@@ -1,0 +1,16 @@
+/*
+ * q12.c
+ *
+ *  Created on: Dec 7, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+
+int main (void)
+{
+	unsigned short int n = 0x1237;
+	n&=n-1;
+	printf("0x%x", n);
+	return 0;
+}

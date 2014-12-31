@@ -1,0 +1,12 @@
+Hello Customer,
+ 
+Thank you for your order.  You have ordered the following products:
+ 
+#foreach($product in $productsOrdered)
+* Item $velocityCount - $product.getName() ($number.format("currency", $product.getPrice())))
+#end
+ 
+Your items will be shipped within 24 hours.
+ 
+Sincerely,
+The $companyName Team

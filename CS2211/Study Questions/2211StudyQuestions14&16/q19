@@ -1,0 +1,80 @@
+/*
+ * q19.c
+ *
+ *  Created on: Dec 6, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+
+typedef struct
+{
+	int numerator, denominator;
+}fraction;
+
+fraction GCD (fraction);
+fraction ADD (fraction, fraction);
+fraction SUB (fraction, fraction);
+fraction MUL (fraction, fraction);
+fraction DIV (fraction, fraction);
+
+int main (void)
+{
+	fraction x={1, 2}, y={100,50}, z;
+	x=GCD(x);
+	y=GCD(y);
+	printf("y = %d/%d\n", y.numerator, y.denominator);
+	printf("x = %d/%d\n", x.numerator, x.denominator);
+	z=ADD(x, y);
+	printf("z = %d/%d\n", z.numerator, z.denominator);
+	z=SUB(x, y);
+	printf("z = %d/%d\n", z.numerator, z.denominator);
+	z=MUL(x, y);
+	printf("z = %d/%d\n", z.numerator, z.denominator);
+	z=DIV(x, y);
+	printf("z = %d/%d\n", z.numerator, z.denominator);
+	return 0;
+}
+
+fraction GCD (fraction frac)
+{
+	int x=frac.numerator, y=frac.denominator, max = (x>y ? x : y);
+	fraction new;
+
+	for (; max>1; max--)if ((x%max==0)&&(y%max==0))break;
+	new.numerator=x/max;
+	new.denominator=y/max;
+	return new;
+}
+
+fraction ADD (fraction x, fraction y)
+{
+	fraction new;
+	new.numerator=x.numerator*y.denominator+y.numerator*x.denominator;
+	new.denominator=x.denominator*y.denominator;
+	return GCD(new);
+}
+
+fraction SUB (fraction x, fraction y)
+{
+	fraction new;
+	new.numerator=x.numerator*y.denominator-y.numerator*x.denominator;
+	new.denominator=x.denominator*y.denominator;
+	return GCD(new);
+}
+
+fraction MUL (fraction x, fraction y)
+{
+	fraction new;
+	new.numerator=x.numerator*y.numerator;
+	new.denominator=x.denominator*y.denominator;
+	return GCD(new);
+}
+
+fraction DIV (fraction x, fraction y)
+{
+	fraction new;
+	new.numerator=x.numerator*y.denominator;
+	new.denominator=x.denominator*y.numerator;
+	return GCD(new);
+}

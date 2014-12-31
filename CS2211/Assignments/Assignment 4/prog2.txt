@@ -1,0 +1,61 @@
+#include<stdio.h>
+int main (void)
+{
+	int n, check=0;
+
+	while (check==0)
+	{
+		printf("Enter size of magic square: ");			/* Asks the user to input a n value */
+		scanf("%d", &n);
+
+		if (n>0 && n<100 && n%2!=0)				/* Checks if the value is odd and between 1-99*/
+			check=1;
+		else
+			printf("invalid size, try again...\n");
+	}
+	int ary [n][n];							/* Initializes the magic square array */
+	int i, j, x;
+
+	for (i=0; i<n; i++)						/* Loops through the array and sets all its values to 0*/
+	{
+		for (j=0; j<n; j++)
+		{
+			ary[i][j]=0;
+		}
+	}
+
+	i=0, j=n/2, x=2;						/* sets i and j to there starting values*/
+	ary [i][j]=1;							/* sets the middle value of row 0 to 1 */
+
+	for ( ; x<(n*n)+1; )						/* loops until the array is filled */
+	{
+		i--;j++;						/* moves up a row and a column to the right*/
+		if (i==-1)						/* Two if statements to make sure that the array does not run out of bounds */
+			i=n-1;	
+		if (j==n)
+			j=0;
+		if (ary[i][j]==0)
+		{
+			ary[i][j]=x++;					/* adds the value of x to array and increments it */
+		}
+		else
+		{	
+			i+=2; j--;					/* changes the values so the loop can jump to the next row */
+			if (i>=n)					/* Two if statements to make sure that the array does not run out of bounds */
+				i=i-n;
+			if (j==-1)
+				j=n-1;
+
+			ary[i][j]=x++;					/* adds the value of x to array and increments it */
+		}
+	}
+	
+	for (i=0; i<n; i++)						/* prints out the array */
+	{
+		for (j=0; j<n; j++)
+		{
+			printf("\t %d", ary[i][j]);
+		}
+		printf("\n");
+	}	
+}

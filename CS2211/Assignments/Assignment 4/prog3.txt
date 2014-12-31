@@ -1,0 +1,34 @@
+#include<stdio.h>
+
+void pay_amount(int dollars, int *twenties, int *tens, int *fives, int *toonies, int *lonnie);
+
+int main (void)
+{
+	int dollars, twenties, tens, fives, toonies, lonnie;								/* Initialize variables */
+	
+	printf("Enter the amount in dollars: ");									/* Asks the user for the dollar ammount */
+	scanf("%d", &dollars);
+	pay_amount(dollars, &twenties, &tens, &fives, &toonies, &lonnie);
+
+	printf("The smallest number of $20-$1 bills/coins necessary to pay the dollar amount: %d \n", dollars);		/* Prints the outpout */
+	printf("%d 20$,\t %d 10$,\t %d 5$,\t %d 2$,\t %d 1$\n", twenties, tens, fives, toonies, lonnie);
+
+	return 0;
+}
+
+void pay_amount(int dollars, int *twenties, int *tens, int *fives, int *toonies, int *lonnie)
+{
+	*twenties=dollars/20;												/* changes the value in the memory referred to by the pointer*/
+	dollars%=20;													
+
+	*tens=dollars/10;												/* changes the value in the memory referred to by the pointer*/
+	dollars%=10;
+	
+	*fives=dollars/5;												/* changes the value in the memory referred to by the pointer*/
+	dollars%=5;
+
+	*toonies=dollars/2;												/* changes the value in the memory referred to by the pointer*/
+	dollars%=2;
+
+	*lonnie=dollars;												/* changes the value in the memory referred to by the pointer*/
+}

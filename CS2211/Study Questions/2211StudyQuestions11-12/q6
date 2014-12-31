@@ -1,0 +1,24 @@
+/*
+ * q6.c
+ *
+ *  Created on: Dec 1, 2013
+ *      Author: ZiZo
+ */
+
+void f(int *x);
+
+int main(void)
+{
+	int x, y;
+	x = 10; y = 11;
+	f(&x) ;
+	f(&y);
+	printf("x = %d, y = %d\n", x, y);
+}
+
+void f(int *x)
+{
+	int y;
+	y = *x + 2;
+	*x = 2 * *x;
+}

@@ -1,0 +1,47 @@
+#include<stdio.h>
+
+int main ()
+{
+	//creates and initializes variables
+	float loan=-1, yr=-1, mp=-1, n=-1, mr, rate;
+	int month=1, ptr=0;
+	
+	//checks if the value entered for loan is positive.
+	while (loan<0)
+	{
+		printf("Please enter the amount of loan: ");
+		scanf("%f", &loan);
+	}
+
+	//checks if the value entered for yr is positive.
+	while (yr<0)
+	{
+		printf("Please enter the yearly intrest rate: ");
+		scanf("%f", &yr);
+	}
+
+	//checks if the value entered for mp is positive.
+	while (mp<0)
+	{
+		printf("Please enter the monthly payment amount: ");
+		scanf("%f", &mp);
+	}
+
+	//checks if the value entered for n is positive.
+	while (n<0)
+	{
+		printf("Please enter the number of monthly payments: ");
+		scanf("%f", &n);
+	}
+
+	//calculates the intrest depending on the n number and while loan is more than mp
+	mr=yr/12;
+	while (ptr<n && loan>mp)
+	{	
+		loan=(loan*(1+mr))-mp;
+		printf("The loan blance is: %.2f\n", loan);	
+		ptr++;
+	}
+	printf("The last payment is: %.2f\n", loan);
+	return 0;
+}

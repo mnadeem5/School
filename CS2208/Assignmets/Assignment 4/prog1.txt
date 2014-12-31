@@ -1,0 +1,42 @@
+		AREA	prog1, CODE, READWRITE
+		ENTRY
+		
+		ADR		r0, STRING3						;Identifies the pointer for the free memory location			
+		LDR		r1, =STRING1						;Loads the pointer of STRING1 to r1		 
+		
+START	
+		MOV		r4, #0							;Moves the value of the character "null" in hexadecimal into r4 to point to the start of a string
+		
+LOOP
+		LDRB		r3, [r1, r4]						;Loads a byte into r3 from the memory location appointed by r1 in position r4
+		ADD		r4, r4, #1						;Increments r4.
+		
+		CMP		r3, r2							;Compares r3's value to a r2's value, null.
+		BEQ		BOOL							;If r3 contains the "null" value, branch to BOOL
+		BNE		STORE							;Else branch to STORE
+
+STORE	
+		STRB		r3, [r0, r5]						;Store the byte contained in r3 into r0 at r5
+		ADD		r5, r5, #1						;Increments r5
+		B		LOOP							;Branch back to LOOP
+
+BOOL	
+		CMP		r6, #0							;Compares r6 to 0, r6 contains the number of Strings appended
+		BEQ		NEXTS							;If r6 equals 0, branch to NETS
+		STRB		r2, [r1, r5]						;Else store r2's value, "null", as the last character of memory location contained in r1
+		B		ILOOP							;Ends the program
+		
+NEXTS	
+		ADD		r6, r6, #1						;increments r6, the number of strings appended
+		LDR		r1, =STRING2						;Loads the pointer of STRING2 to r1	 
+		B		START							;Branches to start
+	
+ILOOP		B		ILOOP							;Infinate loop
+		
+		AREA 	prog1, DATA, READWRITE
+STRING1 	DCB 		"This is a test string1"				;String1
+EoS1 		DCB 		0x00 							;end of string1
+STRING2 	DCB 		"This is a test string2" 				;String
+EoS2 		DCB 		0x00 							;end of string2
+STRING3 	space 		0xFF							;Space for STRING3
+		END

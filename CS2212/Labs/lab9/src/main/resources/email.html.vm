@@ -1,0 +1,33 @@
+<div style='font-family: sans-serif'>
+  <p>
+    Hello Customer,
+  </p>
+  <p>
+    Thank you for your order.  You have ordered the following products:
+  </p>
+  <table>
+    <thead>
+      <tr>
+        <th style="text-align: right">Item #</th>
+        <th style="text-align: left">Product</th>
+        <th style="text-align: right">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      #foreach($product in $productsOrdered)
+      <tr>
+        <td style="text-align: right">$velocityCount</td>
+        <td style="text-align: left">$product.getName()</td>
+        <td style="text-align: right">$number.format("currency", $product.getPrice())</td>
+      </tr>
+      #end
+    </tbody>
+  </table>
+  <p>
+    Your items will be shipped within <strong>24 hours</strong>.
+  </p>
+  <p>
+    Sincerely,<br/>
+    The $companyName Team
+  </p>
+</div>

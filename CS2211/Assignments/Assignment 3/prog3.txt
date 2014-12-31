@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+int main ()
+{
+	//creates initializes variables
+	float in;
+	double e=1, x=1;
+	int i=0, j;
+	
+	//initializes in
+	printf("Please enter a decimal value: ");
+	scanf("%f", &in);
+
+	//calculates e while (1/x) is more than in
+	while (in<(1/x))
+	{
+		i++;
+		j=1;
+		x=1;
+		//calculates the factorial n
+		while (j<(i+1))
+		{
+			x=(j*x);
+			j++;
+		}
+		e+=(1/x);
+	}
+	//prints the answer
+	printf("The approximate e value is: %.20f\n", e);
+	printf("The number of terms required to generate e was %d\n", j++);
+	return 0;
+}

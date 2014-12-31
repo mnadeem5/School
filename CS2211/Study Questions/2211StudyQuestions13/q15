@@ -1,0 +1,50 @@
+/*
+ * q15.c
+ *
+ *  Created on: Dec 5, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+
+int get_extension(const char*, char*);
+
+int main(void)
+{
+	char filename [] = "filename.ext";
+	char extenstion []="TXT";
+
+	int i=get_extension(filename, extenstion);
+
+	printf("%d", i);
+	return 0;
+}
+
+int get_extension(const char *filename, char *extension)
+{
+	int i=0;
+	char *p;
+	char ext[strlen(extension)];
+
+	while(filename[i]&&filename[i]!='.')i++;i++;
+
+	if (strlen(filename)-i!=strlen(extension))return 0;
+	else
+	{
+		strcpy(ext, &filename[i]);
+		p=ext;
+		while(*p)
+		{
+			*p=toupper(*p);p++;
+		}
+		p=extension;
+		while(*p)
+		{
+			*p=toupper(*p);p++;
+		}
+		if (strcmp(ext, extension)!=0)return 0;
+		else return 1;
+	}
+}

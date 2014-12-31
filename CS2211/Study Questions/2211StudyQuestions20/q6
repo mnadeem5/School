@@ -1,0 +1,27 @@
+/*
+ * q6.c
+ *
+ *  Created on: Dec 7, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+
+unsigned int rotate_left(unsigned int i, int n);
+unsigned int rotate_right(unsigned int i, int n);
+
+int main (void)
+{
+	printf("0x%x\n", rotate_left(0x12345678, 8));
+	printf("0x%x", rotate_right(0x12345678, 8));
+	return 0;
+}
+
+unsigned int rotate_left(unsigned int i, int n)
+{
+	return (i<<n)|(i>>(128-n));
+}
+unsigned int rotate_right(unsigned int i, int n)
+{
+	return (i>>n)|(i<<(128-n));
+}

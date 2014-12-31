@@ -1,0 +1,17 @@
+/*
+ * q31.c
+ *
+ *  Created on: Dec 6, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+
+int main(void)
+{
+	char text[] = "ABCD", *p = "JKLM";
+	p = text;
+	p[2] = 'Z';
+	puts(text);
+	return 0;
+}

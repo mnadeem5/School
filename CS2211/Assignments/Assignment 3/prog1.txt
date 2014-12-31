@@ -1,0 +1,56 @@
+#include <stdio.h>
+#define TRUE 1
+#define FALSE 0
+int main ()
+{
+	//creates and initializes variables
+	int vaildDayTime=FALSE, validTimeDur=FALSE;
+	int dayTime, timeDur, dayH, dayM, timeH, timeM, h, m;
+	while(!vaildDayTime)
+	{
+		//initializes dayTime
+		printf("Insert a valid day time (24-hour format): ");
+		scanf("%d", &dayTime);
+		
+		//initializes dayH to the dayTime/100 and dayM to the remainder of that.
+		dayH=dayTime/100;
+		dayM=dayTime%100;
+
+		//checks if the entry is valid
+		if (dayH<24 && dayM<60 && dayTime>(-1))
+		{
+			vaildDayTime=TRUE;
+		}
+		else
+		{
+			printf("Please enter a valid day time (24-hour format)\n");
+		}
+	}
+
+	while(!validTimeDur)
+	{
+		//initializes timeDur
+		printf("Insert a valid time duration: ");
+		scanf("%d", &timeDur);
+		
+		//initializes timeH to the timeDur/100 and timeM to the remainder of that.
+		timeH=timeDur/100;
+		timeM=timeDur%100;
+
+		//checks if the entry is valid
+		if (timeM<60)	
+		{
+			validTimeDur=TRUE;
+		}
+		else
+		{
+			printf("Please enter a valid time duration.\n");
+		}
+	}
+	
+	//calculates the hours and minutes of the new time.
+	m=(dayM+timeM)%60;
+	h=(dayH+timeH+((dayM+timeM)/60))%24;
+	
+	printf("The time is: %.2d%.2d\n", h, m);
+}

@@ -1,0 +1,36 @@
+/*
+ * q8.c
+ *
+ *  Created on: Dec 1, 2013
+ *      Author: ZiZo
+ */
+
+void pay_amount(int dollars, int *twenties, int *tens, int *fives, int*toonies, int *lonnie);
+
+int main (void)
+{
+	int n, twin, ten, five, toon, loon;
+	printf("Please enter a number: ");
+	scanf("%d", &n);
+	pay_amount(n, &twin, &ten, &five, &toon, &loon);
+
+	printf("20$: %d, 10$: %d, 5$: %d, 2$: %d, 1$: %d", twin, ten, five, toon, loon);
+	return 0;
+}
+
+void pay_amount(int dollars, int *twenties, int *tens, int *fives, int*toonies, int *lonnie)
+{
+	*twenties=dollars/20;
+	dollars%=20;
+
+	*tens=dollars/10;
+	dollars%=10;
+
+	*fives=dollars/5;
+	dollars%=5;
+
+	*toonies=dollars/2;
+	dollars%=2;
+
+	*lonnie=dollars;
+}

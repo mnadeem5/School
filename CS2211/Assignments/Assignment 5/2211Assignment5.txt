@@ -1,0 +1,74 @@
+Question1
+
+Enter a number: 12345
+     _   _       _
+  |  _|  _| |_| |_
+  | |_   _|   |  _|
+
+Enter a number: 12345678901234567890
+     _   _       _   _   _   _   _   _       _   _       _   _   _   _   _   _
+  |  _|  _| |_| |_  |_    | |_| |_| | |   |  _|  _| |_| |_  |_    | |_| |_| | |
+  | |_   _|   |  _| |_|   | |_|   | |_|   | |_   _|   |  _| |_|   | |_|   | |_|
+
+Enter a number: 123456789012345678901234567890
+     _   _       _   _   _   _   _   _       _   _       _   _   _   _   _   _
+  |  _|  _| |_| |_  |_    | |_| |_| | |   |  _|  _| |_| |_  |_    | |_| |_| | |
+  | |_   _|   |  _| |_|   | |_|   | |_|   | |_   _|   |  _| |_|   | |_|   | |_|
+
+Enter a number: 123asd123-000-rt5
+     _   _       _   _   _   _   _   _
+  |  _|  _|   |  _|  _| | | | | | | |_
+  | |_   _|   | |_   _| |_| |_| |_|  _|
+
+Enter a number: 12465gre5r233123
+     _       _   _   _   _   _   _       _   _                                  
+  |  _| |_| |_  |_  |_   _|  _|  _|   |  _|  _|                                 
+  | |_    | |_|  _|  _| |_   _|  _|   | |_   _|                                 
+
+Enter a number: qwertyuiopasdfghjklzxccc123456
+     _   _       _   _                                                          
+  |  _|  _| |_| |_  |_                                                          
+  | |_   _|   |  _| |_|                                                         
+
+Enter a number: 1234567890123456789012345678901234567890
+     _   _       _   _   _   _   _   _       _   _       _   _   _   _   _   _  
+  |  _|  _| |_| |_  |_    | |_| |_| | |   |  _|  _| |_| |_  |_    | |_| |_| | | 
+  | |_   _|   |  _| |_|   | |_|   | |_|   | |_   _|   |  _| |_|   | |_|   | |_| 
+
+
+Question 2
+
+Please enter the first part of the first complex number (a + ib)	a1: 1
+Please enter the second part of the first complex number (a + ib)	b1: 2
+Please enter the first part of the second complex number (a + ib)	a2: 3
+Please enter the second part of the second complex number (a + ib)	b2: 4
+Result of multiplication: 	-5.000000 + (i) x 10.000000
+Result of division: 		0.440000 + (i) x 0.080000
+
+Please enter the first part of the first complex number (a + ib)	a1: 20
+Please enter the second part of the first complex number (a + ib)	b1: 12
+Please enter the first part of the second complex number (a + ib)	a2: -2
+Please enter the second part of the second complex number (a + ib)	b2: 1
+Result of multiplication: 	-52.000000 + (i) x -4.000000
+Result of division: 		-5.600000 + (i) x -8.800000
+
+Please enter the first part of the first complex number (a + ib)	a1: 0.123
+Please enter the second part of the first complex number (a + ib)	b1: 0.1235
+Please enter the first part of the second complex number (a + ib)	a2: 0.543
+Please enter the second part of the second complex number (a + ib)	b2: 0.13432
+Result of multiplication: 	0.050200 + (i) x 0.083582
+Result of division: 		0.266475 + (i) x 0.161523
+
+Please enter the first part of the first complex number (a + ib)	a1: 0.41
+Please enter the second part of the first complex number (a + ib)	b1: -0.123
+Please enter the first part of the second complex number (a + ib)	a2: 0.1111
+Please enter the second part of the second complex number (a + ib)	b2: -0.456
+Result of multiplication: 	-0.010537 + (i) x -0.200625
+Result of division: 		0.461410 + (i) x 0.786705
+
+Please enter the first part of the first complex number (a + ib)	a1: 1
+Please enter the second part of the first complex number (a + ib)	b1: 1
+Please enter the first part of the second complex number (a + ib)	a2: 1
+Please enter the second part of the second complex number (a + ib)	b2: 1
+Result of multiplication: 	0.000000 + (i) x 2.000000
+Result of division: 		1.000000 + (i) x 0.000000

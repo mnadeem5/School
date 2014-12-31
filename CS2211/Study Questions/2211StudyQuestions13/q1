@@ -1,0 +1,25 @@
+/*
+ * q1.c
+ *
+ *  Created on: Dec 5, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+
+int main (void)
+{
+	printf("1");printf("%c", '\n');
+	//printf("2");printf("%c", "\n");			(wrong format)
+	//printf("3");printf("%s", '\n');			(wrong format)
+	printf("4");printf("%s", "\n");
+	//printf("5");printf('\n');					(wrong format)
+	printf("6");printf("\n");
+	printf("7");putchar('\n');
+	//printf("8");putchar("\n");				(wrong format)
+	//printf("9");puts('\n');					(wrong format)
+	printf("10");puts("\n");
+	printf("11");puts("");
+
+	return 0;
+}

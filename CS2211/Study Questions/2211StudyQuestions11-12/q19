@@ -1,0 +1,50 @@
+/*
+ * q19.c
+ *
+ *  Created on: Dec 2, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+#define MAX_STRING 10
+
+void reverse(char*, char*, int);
+int check(char*, char*, int);
+
+int main(void)
+{
+	char a[MAX_STRING], b[MAX_STRING];
+	int n=0;
+	char *s;
+
+	printf("Please type a sequence of ASCII characters to be tested: \n");
+	gets(a);
+
+	s=a;
+
+	while (*s!='\0')
+	{
+		n++;s++;
+	}
+
+	reverse(a, b, n);
+	printf("%d", check(a, b, n));
+	return 0;
+}
+
+void reverse(char* a, char* b, int n)
+{
+	char* s=a, *s2=b+n-1;
+	while (s-a<n)*s2--=*s++;
+}
+
+int check(char* a, char* b, int n)
+{
+
+	char* s=a, *s2=b;
+	while (s-a<n)
+	{
+		if(*s++!=*s2++)return 0;
+	}
+	return 1;
+}

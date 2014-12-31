@@ -1,0 +1,44 @@
+#!/bin/sh
+
+#Sets the variables i, x, y, z to to the input, zero, zero, and value of i plus one respectively
+i=$1
+x=0
+y=0
+z=`expr $i + 1`
+
+#Nested while loop that does the first half of the triangle.
+while [ $z -gt $x ]
+do 
+	while [ $x -gt $y ]
+	do 	
+		#Prints the values of y on the same line
+		echo -n $y
+		echo -n " "
+		y=`expr $y + 1`
+	done
+	#Resets the value of y, gives a new value to x, and starts a new line.
+	y=0
+	x=`expr $x + 1`
+	echo
+done
+
+#Gives new values to x and z.
+x=`expr $x - 2`
+z=`expr $i - 1`
+
+#Nested while loop that does the second half of the triangle.
+while [ $x -gt 0 ]
+do
+	y=0
+	while  [ $y -lt $z ]
+	do
+		#Prints the values of y on the same line
+		echo -n $y
+		echo -n " "
+		y=`expr $y + 1`
+	done
+	#Gives new values to x and z, and starts a new line.
+	x=`expr $x - 1`
+	z=$x
+	echo
+done

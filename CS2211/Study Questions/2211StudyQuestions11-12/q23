@@ -1,0 +1,24 @@
+/*
+ * q23.c
+ *
+ *  Created on: Dec 2, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+
+void store_zeros(int a[], int n);
+
+int main(void)
+{
+	int a[]={1, 2, 3, 4, 5}, n=sizeof(a)/4, *p=a;
+	store_zeros(a, n);
+	while(p<a+n)printf("%d", *p++);
+	return 0;
+}
+
+void store_zeros(int a[], int n)
+{
+	int *i=a;
+	while (i<a+n)*i++=0;
+}

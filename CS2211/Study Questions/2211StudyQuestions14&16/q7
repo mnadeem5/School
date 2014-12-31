@@ -1,0 +1,17 @@
+/*
+ * q7.c
+ *
+ *  Created on: Dec 6, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+#include<math.h>
+
+#define DISP(f, x) printf(#f"(%.2lf) = %.2lf\n", x, f(x));
+
+int main(void)
+{
+	DISP(sqrt, 4.0);
+	return 0;
+}

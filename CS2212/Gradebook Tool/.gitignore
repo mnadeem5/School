@@ -1,0 +1,13 @@
+*.class
+target/
+*.classpath
+*.project
+*.metadata/
+data.dat
+*.css
+*.*~
+doc/
+*.iml
+.idea/*
+report.pdf
+make

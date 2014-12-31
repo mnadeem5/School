@@ -1,0 +1,71 @@
+#!/bin/sh
+
+#Checks if the number of arguments is 2, if not it displays an error message.
+if [ $# -ne 2 ]
+then
+	echo "Usage: nums option input-file"
+#Checks if the value of argument 2 (the file) is in the directory, if not it displays an error message.
+elif [ ! -f $2 ]
+then 
+	echo "input-file not found"
+#Checks if the value of the first argument is 0 or 1, if not it displays an error message.
+elif [ $1 -ne 0 -a $1 -ne 1 ]
+then 
+	echo "Option must be 0 or 1"
+else
+	#Sets the value of file to the second argument.
+	file=$2
+	#Reads the file into the list 'lst'
+	lst=`cat $file`
+	#Sets the values of num1 and num2 to zero
+	num1=0
+	num2=0
+
+	#Checks if the ueser wants the smallest or the largest numbers
+	if [ $1 -eq 0 ]
+	then 
+		#A for loop that looks through the lst for the smallest values
+		for i in $lst
+		do
+			#Checks if the value of i is less than the value of num2
+			if [ $i -lt $num2 ]
+			then
+				#Checks if the value of i is less than the value of num1
+				if [ $i -lt $num1 ]
+				then 
+					num2=$num1
+					num1=$i
+				#Checks if the value of i is less than the value of num2
+				elif [ $i -lt $num2 ]
+				then 
+					num2=$i
+				fi
+			fi
+		done
+		#Prints the results
+		echo "The 2nd smallest in the list number is $num2"
+		echo "The smallest number in the list is $num1"	
+	else
+		#A for loop that looks through the lst for the largest values
+		for i in $lst
+		do
+			#Checks if the value of i is larger than the value of num2
+			if [ $i -gt $num2 ]
+			then
+				#Checks if the value of i is larger than the value of num1
+				if [ $i -gt $num1 ]
+				then
+					num2=$num1
+					num1=$i
+				#Checks if the value of i is larger than the value of num2
+				elif [ $i -gt $num2 ]
+				then 
+					num2=$i
+				fi
+			fi
+		done
+		#Prints the results
+		echo "The 2nd largest in the list number is $num2"
+		echo "The largest number in the list is $num1"
+	fi
+fi

@@ -1,0 +1,19 @@
+/*
+ * q34.c
+ *
+ *  Created on: Dec 6, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+
+int main(void)
+{
+	char text[] = "ABCDEFGH";
+	char*p = text + 2;
+	int sum = 0, i = 0;
+
+	for (i=0; i < 4; i++)sum += p[i];
+	printf("%c\n", sum/i);
+	return 0;
+}

@@ -1,0 +1,24 @@
+
+#include<stdio.h>
+
+int search (const int a[], int n, int key);
+
+int main(void)
+{
+	int a[]={1, 2, 3, 5};
+	int n=sizeof(a)/4, key=6;
+	printf("%d", search(a, n, key));
+	return 0;
+}
+
+int search (const int a[], int n, int key)
+{
+	int *p=a;
+
+	while(p<a+n)
+	{
+		if (*p==key)return 1;
+		p++;
+	}
+	return 0;
+}

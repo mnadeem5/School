@@ -1,0 +1,33 @@
+/*
+ * q4.c
+ *
+ *  Created on: Dec 7, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+#include<stdlib.h>
+
+struct point
+{
+	int x, y;
+};
+
+struct rectangle
+{
+	struct point upper_left, lower_right;
+};
+
+int main (void)
+{
+	struct rectangle *p=malloc(sizeof(struct rectangle));
+	p->lower_right.x=20;
+	p->lower_right.y=15;
+	p->upper_left.x=10;
+	p->upper_left.y=25;
+
+	printf("Upper Left: (%d, %d), Lower Rights: (%d, %d)",
+			p->upper_left.x,p->upper_left.y,
+			p->lower_right.x, p->lower_right.y);
+	return 0;
+}

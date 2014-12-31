@@ -1,0 +1,27 @@
+/*
+ * q8.c
+ *
+ *  Created on: Dec 7, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+
+int count_ones(unsigned char ch);
+
+int main (void)
+{
+	printf("%d", count_ones('c'));
+	return 0;
+}
+
+int count_ones(unsigned char ch)
+{
+	int count=0;
+	while (ch)
+	{
+		if (ch%2!=0)count++;
+		ch/=2;
+	}
+	return count;
+}

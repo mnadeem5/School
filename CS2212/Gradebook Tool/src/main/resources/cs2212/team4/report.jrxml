@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5a936d01-b5e4-4627-915d-cdf524c6075c">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="ReportData"/>
+	<style name="studentAvg" vAlign="Middle" pattern="">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[-1<$F{studentAvg}&&$F{studentAvg}<50]]></conditionExpression>
+			<style forecolor="#FF0000"/>
+		</conditionalStyle>
+	</style>
+	<style name="studentAsnAvg" vAlign="Middle" pattern="#,##0.##%">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[-1<$F{studentAsnAvg}&&$F{studentAsnAvg}<50]]></conditionExpression>
+			<style forecolor="#FF0000"/>
+		</conditionalStyle>
+	</style>
+	<style name="studentExmAvg" vAlign="Middle" pattern="#,##0.##%">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[-1<$F{studentExamAvg}&&$F{studentExamAvg}<50]]></conditionExpression>
+			<style forecolor="#FF0000"/>
+		</conditionalStyle>
+	</style>
+	<style name="classAvg" vAlign="Middle" pattern="#,##0.##%">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[-1<$F{classAvg}&&$F{classAvg}<50]]></conditionExpression>
+			<style forecolor="#FF0000"/>
+		</conditionalStyle>
+	</style>
+	<style name="classAsnAvg" vAlign="Middle" pattern="#,##0.##%">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[-1<$F{classAsnAvg}&&$F{classAsnAvg}<50]]></conditionExpression>
+			<style forecolor="#FF0000"/>
+		</conditionalStyle>
+	</style>
+	<style name="classExmAvg" vAlign="Middle" pattern="#,##0.##%">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[-1<$F{classExamAvg}&&$F{classExamAvg}<50]]></conditionExpression>
+			<style forecolor="#FF0000"/>
+		</conditionalStyle>
+	</style>
+	<style name="deliverName" fontName="SansSerif" fontSize="12" isBold="false">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{deliverName}==null]]></conditionExpression>
+			<style fontName="SansSerif" fontSize="14" isBold="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="deliverGrade" fontName="SansSerif" fontSize="12" isBold="false">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{grade}==null]]></conditionExpression>
+			<style fontName="SansSerif" fontSize="14" isBold="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="deliverWeight" fontName="SansSerif" fontSize="12" isBold="false">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{weight}==null]]></conditionExpression>
+			<style fontName="SansSerif" fontSize="14" isBold="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="deliverType" fontName="SansSerif" fontSize="12" isBold="false">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{deliverType}==null]]></conditionExpression>
+			<style fontName="SansSerif" fontSize="14" isBold="true"/>
+		</conditionalStyle>
+	</style>
+	<style name="grade">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{grade}>-1&&$F{grade}<50]]></conditionExpression>
+			<style forecolor="#FF0000"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="logo" class="java.lang.Object" isForPrompting="false"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="classAsnAvg" class="java.lang.Double">
+		<fieldDescription><![CDATA[classAsnAvg]]></fieldDescription>
+	</field>
+	<field name="classAvg" class="java.lang.Double">
+		<fieldDescription><![CDATA[classAvg]]></fieldDescription>
+	</field>
+	<field name="classExamAvg" class="java.lang.Double">
+		<fieldDescription><![CDATA[classExamAvg]]></fieldDescription>
+	</field>
+	<field name="courseCode" class="java.lang.String">
+		<fieldDescription><![CDATA[courseCode]]></fieldDescription>
+	</field>
+	<field name="courseTerm" class="java.lang.String">
+		<fieldDescription><![CDATA[courseTerm]]></fieldDescription>
+	</field>
+	<field name="courseTitle" class="java.lang.String">
+		<fieldDescription><![CDATA[courseTitle]]></fieldDescription>
+	</field>
+	<field name="studentAsnAvg" class="java.lang.Double">
+		<fieldDescription><![CDATA[studentAsnAvg]]></fieldDescription>
+	</field>
+	<field name="studentAvg" class="java.lang.Double">
+		<fieldDescription><![CDATA[studentAvg]]></fieldDescription>
+	</field>
+	<field name="studentEmail" class="java.lang.String">
+		<fieldDescription><![CDATA[studentEmail]]></fieldDescription>
+	</field>
+	<field name="studentExamAvg" class="java.lang.Double">
+		<fieldDescription><![CDATA[studentExamAvg]]></fieldDescription>
+	</field>
+	<field name="studentFirstName" class="java.lang.String">
+		<fieldDescription><![CDATA[studentFirstName]]></fieldDescription>
+	</field>
+	<field name="studentLastName" class="java.lang.String">
+		<fieldDescription><![CDATA[studentLastName]]></fieldDescription>
+	</field>
+	<field name="studentNumber" class="java.lang.String">
+		<fieldDescription><![CDATA[studentNumber]]></fieldDescription>
+	</field>
+	<field name="deliverName" class="java.lang.String">
+		<fieldDescription><![CDATA[deliverName]]></fieldDescription>
+	</field>
+	<field name="grade" class="java.lang.Double">
+		<fieldDescription><![CDATA[grade]]></fieldDescription>
+	</field>
+	<field name="weight" class="java.lang.Double">
+		<fieldDescription><![CDATA[weight]]></fieldDescription>
+	</field>
+	<field name="deliverType" class="java.lang.String">
+		<fieldDescription><![CDATA[deliverType]]></fieldDescription>
+	</field>
+	<field name="deliverAvg" class="java.lang.Double">
+		<fieldDescription><![CDATA[deliverAvg]]></fieldDescription>
+	</field>
+	<sortField name="deliverType"/>
+	<variable name="asnWeight" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{deliverType}.equals("Assignment") ? $F{weight} : 0]]></variableExpression>
+	</variable>
+	<variable name="exmWeight" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{deliverType}.equals("Exam") ? $F{weight} : 0]]></variableExpression>
+	</variable>
+	<variable name="otherWeight" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{deliverType}.equals("Other") ? $F{weight} : 0]]></variableExpression>
+	</variable>
+	<variable name="asnAvg" class="java.lang.Double" calculation="Average">
+		<variableExpression><![CDATA[$F{deliverType}.equals("Assignment")? $F{grade} : null]]></variableExpression>
+	</variable>
+	<variable name="exmAvg" class="java.lang.Double" calculation="Average">
+		<variableExpression><![CDATA[$F{deliverType}.equals("Exam") ? $F{grade} : null]]></variableExpression>
+	</variable>
+	<variable name="otherAvg" class="java.lang.Double" calculation="Average">
+		<variableExpression><![CDATA[$F{deliverType}.equals("Other") ? $F{grade} : null]]></variableExpression>
+	</variable>
+	<title>
+		<band height="70" splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<textField>
+				<reportElement key="" x="0" y="0" width="280" height="30" uuid="75826cf7-62d3-46b4-b4d5-5e78e69bc8a6"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="21"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Student Report"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="30" width="280" height="20" uuid="a02bf3fc-e857-4041-87a7-5a529b8d4944"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{courseTitle}+": "+$F{courseCode}+$F{courseTerm}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement mode="Opaque" x="350" y="0" width="205" height="50" backcolor="#FFFFFF" uuid="e33ac20c-215b-4a01-9dbe-29b22e4e5609"/>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="0" y="60" width="555" height="1" uuid="29a98744-2186-4910-9b6a-e886cb243beb">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="80" splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<textField>
+				<reportElement x="120" y="0" width="434" height="20" uuid="cce31bae-3958-48a0-820c-b56bb3453574"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{studentLastName}+", "+$F{studentFirstName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="20" width="435" height="20" uuid="236c03ad-3b57-41af-87aa-c555ca0b78e8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{studentNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="40" width="435" height="20" uuid="7c53b85b-e36a-4348-bd6c-2f31e1b743e3"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{studentEmail}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="120" height="20" uuid="9e322a4c-4887-4f80-a667-12fd66f2073e"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Student Name: "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="20" width="120" height="20" uuid="6be6bdd7-2d00-4657-882a-e2fd310d75f8"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Student Number: "]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="40" width="120" height="20" uuid="e33d3842-f2bd-4043-89be-8a5beaf78fdb"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Student Email: "]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="130" splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="" x="280" y="40" width="200" height="20" isRemoveLineWhenBlank="true" uuid="6f0e4529-a27a-48ba-99ae-42e76b1a31f2"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{studentExamAvg}!=null ? "Class Exam Average:" : null]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00%" isBlankWhenNull="true">
+				<reportElement key="" style="studentAsnAvg" x="200" y="20" width="80" height="20" isRemoveLineWhenBlank="true" uuid="eeb40efe-22a3-4ce9-9dd9-ce8daaea74da"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{studentAsnAvg}==-1?0:$F{studentAsnAvg}/100]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="" x="280" y="20" width="200" height="20" isRemoveLineWhenBlank="true" uuid="3a266b92-823e-4f24-9dea-df80de6275a4"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{studentAsnAvg}!=null ? "Class Assignment Average:" : null]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00%" isBlankWhenNull="true">
+				<reportElement key="" style="classAvg" x="480" y="0" width="74" height="20" isRemoveLineWhenBlank="true" uuid="9de40b13-75b1-4dff-a930-bd780ed5f105"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{classAvg}==-1?0:$F{classAvg}/100]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00%" isBlankWhenNull="true">
+				<reportElement key="" style="classAsnAvg" x="480" y="20" width="74" height="20" isRemoveLineWhenBlank="true" uuid="b5cb7e9a-b071-4221-9337-6ead147dbc8c"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{classAsnAvg}==-1?0:$F{classAsnAvg}/100]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00%" isBlankWhenNull="true">
+				<reportElement key="" style="studentExmAvg" x="200" y="40" width="80" height="20" isRemoveLineWhenBlank="true" uuid="37464020-1dd9-4f22-a532-b3bba2ee7c1b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{studentExamAvg}==-1?0:$F{studentExamAvg}/100]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="" x="0" y="40" width="200" height="20" isRemoveLineWhenBlank="true" uuid="258567b0-18ab-4af0-b372-50d2a312af42"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{studentExamAvg}!=null ? "Student Exam Average:" : null]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="" x="0" y="20" width="200" height="20" isRemoveLineWhenBlank="true" uuid="a90e80a5-4103-43a1-8d2b-e981bcd8696b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{studentAsnAvg}!=null ? "Student Assignment Average:" : null]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="" x="280" y="0" width="200" height="20" isRemoveLineWhenBlank="true" uuid="bce333f5-2612-46e8-ba25-48804c552d8f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{classAvg}!=null ? "Class Average:" : null]]></textFieldExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement key="" x="0" y="0" width="200" height="20" isRemoveLineWhenBlank="true" uuid="420e370e-b6c6-42b8-bd8d-a358207a6db0"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{studentAvg}!=null ? "Student Average:" : null]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00%" isBlankWhenNull="true">
+				<reportElement key="" style="studentAvg" x="200" y="0" width="80" height="20" isRemoveLineWhenBlank="true" uuid="21cffbfd-41ed-4e38-91c6-f5ae40481829"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{studentAvg}==-1?0:$F{studentAvg}/100]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00%" isBlankWhenNull="true">
+				<reportElement key="" style="classExmAvg" x="480" y="40" width="74" height="20" isRemoveLineWhenBlank="true" uuid="dd9df0b7-6567-4de0-96c8-85868a29fe17"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{classExamAvg}==-1?0:$F{classExamAvg}/100]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="80" width="554" height="20" uuid="53fbb226-2ff7-4711-868b-3bf3273852fe"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Assesment Breakdown"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="deliverName" x="0" y="110" width="150" height="20" uuid="c7836255-ed99-44ca-8c82-c92fec66d1b6">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Deliverable Name"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="deliverName" x="150" y="110" width="100" height="20" uuid="1e89c2cc-e5be-48c5-905d-496d0b8b5a90">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Grade"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="deliverName" x="349" y="110" width="100" height="20" uuid="7f78e0bf-0682-4c1d-8b6e-1a55c0ef271c">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Weight"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="deliverName" x="449" y="110" width="100" height="20" uuid="1ec0b606-f597-46a5-861e-445cb8fc6413">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Type"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="deliverName" x="250" y="110" width="99" height="20" uuid="67d9f2a7-d88e-4c8f-aa87-7300d80a0a57">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Class Average"]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="70" width="555" height="1" uuid="1ca1e64f-cfbb-4999-8a51-17678fc8e469">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<textField pattern="#,##0.00%" isBlankWhenNull="true">
+				<reportElement style="grade" x="150" y="0" width="100" height="20" isRemoveLineWhenBlank="true" uuid="69d4b2c8-4543-4a9d-b2af-620caec041bc">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{grade}/100<0 ? null : $F{grade}/100]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00%" isBlankWhenNull="true">
+				<reportElement style="deliverWeight" x="349" y="0" width="100" height="20" isRemoveLineWhenBlank="true" uuid="7c4041aa-cee1-4a06-81aa-53ac626e9f67"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{weight}/100<0 ? null : $F{weight}/100]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="deliverType" x="449" y="0" width="100" height="20" isRemoveLineWhenBlank="true" uuid="0c327fc5-0bcd-43eb-b6c8-72d15e87ba0f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{deliverType}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement style="deliverName" x="0" y="0" width="150" height="20" isRemoveLineWhenBlank="true" uuid="5c7b33a9-884a-4de7-97e1-3a2509295be0">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{deliverName}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00%" isBlankWhenNull="true">
+				<reportElement style="deliverWeight" x="250" y="0" width="100" height="20" isRemoveLineWhenBlank="true" uuid="fc755ef6-4399-4d29-ba9f-50b28967fa82"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{deliverAvg}/100<0 ? null : $F{deliverAvg}/100]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="20">
+			<property name="local_mesure_unitheight" value="pixel"/>
+		</band>
+	</columnFooter>
+	<summary>
+		<band height="430">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<lineChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="0" width="555" height="200" uuid="40a5b726-ed49-43e7-a787-d3efd885b545">
+						<property name="local_mesure_unity" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.y" value="px"/>
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<chartTitle>
+						<font fontName="SansSerif" size="14"/>
+						<titleExpression><![CDATA["Student vs. Class Deliverable Average"]]></titleExpression>
+					</chartTitle>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Student Average"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{deliverName}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{grade}!=-1 ? $F{grade} : null]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Class Average"]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{deliverName}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{deliverAvg}!=-1 ? $F{deliverAvg} : null]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<linePlot>
+					<plot/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</linePlot>
+			</lineChart>
+			<bar3DChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="220" width="280" height="210" uuid="1ec61a52-8ae7-4662-82eb-70ed63a6c43e"/>
+					<chartTitle>
+						<font fontName="Arial" size="14"/>
+						<titleExpression><![CDATA["Averages Chart"]]></titleExpression>
+					</chartTitle>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Assignments"]]></seriesExpression>
+						<categoryExpression><![CDATA["Average"]]></categoryExpression>
+						<valueExpression><![CDATA[$V{asnAvg}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Exams"]]></seriesExpression>
+						<categoryExpression><![CDATA["Average"]]></categoryExpression>
+						<valueExpression><![CDATA[$V{exmAvg}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Other"]]></seriesExpression>
+						<categoryExpression><![CDATA["Average"]]></categoryExpression>
+						<valueExpression><![CDATA[$V{otherAvg}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</bar3DPlot>
+			</bar3DChart>
+			<pie3DChart>
+				<chart evaluationTime="Report">
+					<reportElement x="280" y="220" width="275" height="210" uuid="7f0d34a7-9f5a-40a4-a73d-857c0fd2d012"/>
+					<chartTitle>
+						<font fontName="SansSerif" size="14"/>
+						<titleExpression><![CDATA["Weight Distribution"]]></titleExpression>
+					</chartTitle>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset maxCount="3">
+					<pieSeries>
+						<keyExpression><![CDATA["Assignments"]]></keyExpression>
+						<valueExpression><![CDATA[$V{asnWeight}]]></valueExpression>
+					</pieSeries>
+					<pieSeries>
+						<keyExpression><![CDATA["Exams"]]></keyExpression>
+						<valueExpression><![CDATA[$V{exmWeight}]]></valueExpression>
+					</pieSeries>
+					<pieSeries>
+						<keyExpression><![CDATA["Other"]]></keyExpression>
+						<valueExpression><![CDATA[$V{otherWeight}]]></valueExpression>
+					</pieSeries>
+				</pieDataset>
+				<pie3DPlot>
+					<plot/>
+					<itemLabel/>
+				</pie3DPlot>
+			</pie3DChart>
+		</band>
+	</summary>
+</jasperReport>

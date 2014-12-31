@@ -1,0 +1,18 @@
+/*
+ * q4.c
+ *
+ *  Created on: Dec 6, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+
+#define AVG(x, y) (x+y)/2
+#define AREA(x, y) (x)*(y)
+
+int main(void)
+{
+	printf("%d", AVG(2+1, 2+1));
+	printf("%d", AREA(2, 2));
+	return 0;
+}

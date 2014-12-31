@@ -1,0 +1,41 @@
+/*
+ * q9.c
+ *
+ *  Created on: Dec 5, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+#include<string.h>
+
+#define LEN 100
+
+void censor (char []);
+
+int main(void)
+{
+	char str [LEN+1] ="foO, ofool, food, fos, fa";
+
+	censor(str);
+
+	puts(str);
+
+	return 0;
+}
+
+void censor (char str[])
+{
+	char* ptr=str;
+	char holder [3+1];
+
+	while (*(ptr+2))
+	{
+		*holder=*ptr;*(holder+1)=*(ptr+1);
+		*(holder+2)=*(ptr+2);*(holder+3)='\0';
+		if(strcmp("foo", holder)==0)
+		{
+			*ptr='x';*(ptr+1)='x';*(ptr+2)='x';ptr+=2;
+		}
+		ptr++;
+	}
+}

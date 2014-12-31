@@ -1,0 +1,23 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
+
+int main(void)
+{
+	double x, y;				 /* Initialize variables */
+	int i, in=0;				 /* Initialize variables */
+	
+	srand((unsigned) time(NULL)); 		 /* Initialize time for random number generator */
+	
+	for (i=0; i<100000000; i++)			/* Loops based on the input N value */
+	{
+		x = (double)rand()/(RAND_MAX);		/* Gets 2 random numbers and assigns them to x and y */
+		y = (double)rand()/(RAND_MAX);
+		
+		if ((x*x)+(y*y) <1)		/* Computes the square root of x^2 + y^2, compares it*/
+			in++;			/*with the radius of the circle, and increments "in" if it is*/
+	}
+	printf("%lf \n", ((double)in*4/i));	/* Computes and prints the value of Pi */
+	
+	return 0;
+}

@@ -1,0 +1,21 @@
+/*
+ * q12.c
+ *
+ *  Created on: Dec 5, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+#include<string.h>
+
+#define LEN 20
+
+int main(void)
+{
+	char str[LEN+1];
+	strcpy(str, "tire-bouchon");
+	strcpy (&str[4], "d-or-wi");
+	strcat(str, "red?");
+
+	puts(str);
+}

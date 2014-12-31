@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version last-->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="accounts_receivable_report" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8e1307bf-1e7d-4c8c-bf5e-0629c4bc618b">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="customers"/>
+	<style name="balanceOwing" hAlign="Right" pattern="¤#,##0.00#;¤-#,##0.00#">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$F{balanceOwing}>0]]></conditionExpression>
+			<style forecolor="#FF0000"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="logo" class="java.lang.Object" isForPrompting="false"/>
+	<queryString language="SQL">
+		<![CDATA[]]>
+	</queryString>
+	<field name="balanceOwing" class="java.lang.Double">
+		<fieldDescription><![CDATA[balanceOwing]]></fieldDescription>
+	</field>
+	<field name="firstName" class="java.lang.String">
+		<fieldDescription><![CDATA[firstName]]></fieldDescription>
+	</field>
+	<field name="gender" class="java.lang.String">
+		<fieldDescription><![CDATA[gender]]></fieldDescription>
+	</field>
+	<field name="lastName" class="java.lang.String">
+		<fieldDescription><![CDATA[lastName]]></fieldDescription>
+	</field>
+	<field name="planName" class="java.lang.String">
+		<fieldDescription><![CDATA[planName]]></fieldDescription>
+	</field>
+	<sortField name="planName"/>
+	<sortField name="balanceOwing" order="Descending"/>
+	<sortField name="lastName"/>
+	<variable name="firstName1" class="java.lang.Integer" resetType="Column" calculation="Count">
+		<variableExpression><![CDATA[$F{firstName}]]></variableExpression>
+	</variable>
+	<variable name="groupBalance" class="java.lang.Double" resetType="Group" resetGroup="planName" calculation="Sum">
+		<variableExpression><![CDATA[$F{balanceOwing}]]></variableExpression>
+	</variable>
+	<variable name="totalBalance" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{balanceOwing}]]></variableExpression>
+	</variable>
+	<variable name="subscriberCount" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{firstName}]]></variableExpression>
+	</variable>
+	<variable name="maleCount" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{gender}=="Male" ? 1 : 0]]></variableExpression>
+	</variable>
+	<variable name="femaleCount" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{gender}=="Female" ? 1 : 0]]></variableExpression>
+	</variable>
+	<variable name="liteCount" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{planName} == "Plan 1: Lite" ? 1 : 0]]></variableExpression>
+	</variable>
+	<variable name="expressCount" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{planName} == "Plan 2: Express" ? 1 : 0]]></variableExpression>
+	</variable>
+	<variable name="extremeCount" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{planName} == "Plan 3: Extreme" ? 1 : 0]]></variableExpression>
+	</variable>
+	<variable name="extremePlusCount" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[$F{planName} == "Plan 4: Extreme Plus" ? 1 : 0]]></variableExpression>
+	</variable>
+	<variable name="liteBalance" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{planName} == "Plan 1: Lite" ? $F{balanceOwing} : 0]]></variableExpression>
+	</variable>
+	<variable name="expressBalance" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{planName} == "Plan 2: Express" ? $F{balanceOwing} : 0]]></variableExpression>
+	</variable>
+	<variable name="extremeBalance" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{planName} == "Plan 3: Extreme" ? $F{balanceOwing} : 0]]></variableExpression>
+	</variable>
+	<variable name="extremePlusBalance" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{planName} == "Plan 4: Extreme Plus" ? $F{balanceOwing} : 0]]></variableExpression>
+	</variable>
+	<group name="planName">
+		<groupExpression><![CDATA[$F{planName}]]></groupExpression>
+		<groupHeader>
+			<band height="30">
+				<textField>
+					<reportElement x="0" y="0" width="572" height="30" uuid="4a69cbf7-865f-4acf-a7d3-dee96261771b"/>
+					<textElement>
+						<font size="18"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{planName}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="58">
+				<textField>
+					<reportElement style="balanceOwing" x="472" y="0" width="100" height="30" uuid="726b2b5f-7890-4882-87c5-38504b73867c"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{groupBalance}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="473" y="0" width="100" height="1" uuid="9d851183-2b4b-442f-b464-f402b87f7690">
+						<property name="local_mesure_unitheight" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="local_mesure_unitwidth" value="pixel"/>
+					</reportElement>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="101" splitType="Stretch">
+			<staticText>
+				<reportElement x="502" y="0" width="70" height="79" uuid="160fe535-f29d-404c-a162-7d0aa5da06b2"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[ACME Internet]]></text>
+			</staticText>
+			<image>
+				<reportElement mode="Opaque" x="0" y="20" width="168" height="55" backcolor="#FF0000" uuid="4035d0aa-ddf8-44c6-857c-48aaa504699e">
+					<property name="local_mesure_unitx" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="local_mesure_unity" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="75" width="572" height="26" uuid="274aaa4f-26e8-446c-85ed-2dd7cc0b835a">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Accounts Receivable Report]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="balanceOwing" x="380" y="0" width="192" height="20" uuid="1c0c4d5f-158d-4d2e-940c-d09ba4434c62"/>
+				<textFieldExpression><![CDATA[$F{balanceOwing}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="190" height="20" uuid="75c3b50c-1024-4d83-9503-13e9eaaf7d01">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{firstName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="0" width="190" height="20" uuid="dda97c42-f7f2-4f10-810a-f517db968ec0"/>
+				<textFieldExpression><![CDATA[$F{lastName}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="56" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="620" splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement x="1" y="0" width="572" height="42" uuid="38975344-36e5-4cef-9640-8823ce63c3a6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Subscriber Summary]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="40" width="160" height="20" uuid="edb7305b-f706-4ee4-9217-89d1acd28df6">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total Balances:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="160" height="20" uuid="a805edb4-9b2b-454e-91a7-1b9e1b52037c">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Subscriber Count:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="100" width="160" height="20" uuid="98a56948-6981-4098-9d09-4c8312b5f7e0">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Female Subscriber:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="80" width="160" height="20" uuid="86a80230-41a6-4d7c-8e40-003356165269">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Male Subscriber:]]></text>
+			</staticText>
+			<textField pattern="¤#,##0.00#;¤-#,##0.00#">
+				<reportElement x="180" y="42" width="100" height="20" uuid="4016fb0c-3272-47e4-97cb-b248e6226600">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="local_mesure_unitwidth" value="pixel"/>
+				</reportElement>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalBalance}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="60" width="100" height="20" uuid="74bbe85d-ed44-4183-9c6a-ac45fa0e7336">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{subscriberCount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="80" width="100" height="20" uuid="c13fc6a1-c928-439a-bd85-4d44b4ed0fa9">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{maleCount}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="100" width="100" height="20" uuid="f4e2e3be-94d4-42e6-aa0f-ab28f0763bdb">
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{femaleCount}]]></textFieldExpression>
+			</textField>
+			<pie3DChart>
+				<chart evaluationTime="Report">
+					<reportElement x="300" y="60" width="282" height="160" uuid="4c4cd051-9515-45cc-9a9f-1081692a9a45">
+						<property name="local_mesure_unitwidth" value="pixel"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+						<property name="local_mesure_unitheight" value="pixel"/>
+					</reportElement>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<pieDataset maxCount="4">
+					<pieSeries>
+						<keyExpression><![CDATA["Lite"]]></keyExpression>
+						<valueExpression><![CDATA[$V{liteCount}]]></valueExpression>
+					</pieSeries>
+					<pieSeries>
+						<keyExpression><![CDATA["Express"]]></keyExpression>
+						<valueExpression><![CDATA[$V{expressCount}]]></valueExpression>
+					</pieSeries>
+					<pieSeries>
+						<keyExpression><![CDATA["Extreme"]]></keyExpression>
+						<valueExpression><![CDATA[$V{extremeCount}]]></valueExpression>
+					</pieSeries>
+					<pieSeries>
+						<keyExpression><![CDATA["Extreme Plus"]]></keyExpression>
+						<valueExpression><![CDATA[$V{extremePlusCount}]]></valueExpression>
+					</pieSeries>
+				</pieDataset>
+				<pie3DPlot labelFormat="{0} ({2})" legendLabelFormat="{0}">
+					<plot/>
+					<itemLabel/>
+				</pie3DPlot>
+			</pie3DChart>
+			<bar3DChart>
+				<chart evaluationTime="Report">
+					<reportElement x="0" y="220" width="572" height="200" uuid="d2e7932d-fb6a-45da-9114-f7a10c0c31f6"/>
+					<chartTitle/>
+					<chartSubtitle>
+						<font size="18"/>
+						<subtitleExpression><![CDATA["Account Balances by Plan"]]></subtitleExpression>
+					</chartSubtitle>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA["Lite"]]></seriesExpression>
+						<categoryExpression><![CDATA["Lite"]]></categoryExpression>
+						<valueExpression><![CDATA[$V{liteBalance}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Express"]]></seriesExpression>
+						<categoryExpression><![CDATA["Express"]]></categoryExpression>
+						<valueExpression><![CDATA[$V{expressBalance}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Extreme"]]></seriesExpression>
+						<categoryExpression><![CDATA["Extreme"]]></categoryExpression>
+						<valueExpression><![CDATA[$V{extremeBalance}]]></valueExpression>
+					</categorySeries>
+					<categorySeries>
+						<seriesExpression><![CDATA["Extreme Plus"]]></seriesExpression>
+						<categoryExpression><![CDATA["Extreme Plus"]]></categoryExpression>
+						<valueExpression><![CDATA[$V{extremePlusBalance}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot>
+					<plot/>
+					<itemLabel/>
+					<categoryAxisFormat>
+						<axisFormat/>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat/>
+					</valueAxisFormat>
+				</bar3DPlot>
+			</bar3DChart>
+		</band>
+	</summary>
+</jasperReport>

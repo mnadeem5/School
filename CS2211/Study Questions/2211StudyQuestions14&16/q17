@@ -1,0 +1,29 @@
+/*
+ * q17.c
+ *
+ *  Created on: Dec 6, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+
+typedef struct
+{
+	char first_name[20],last_name[20];
+	int score;
+	char grade;
+}student_t;
+
+int main(void)
+{
+	student_t stu1={"Zaid", "Albirawi", 100, 'A'}, stu2;
+	stu2=stu1;
+	student_t stu_list[30];
+	//printf("%s", stu1);
+	printf("%d %c\n", stu1.score, stu1.grade);
+	if(stu2.score == stu1.score)
+		puts("Equal");
+	//if(stu2 == stul)
+	//	printf("Equal structures");
+	return 0;
+}

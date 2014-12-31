@@ -1,0 +1,25 @@
+#!/bin/sh
+
+#Echos the name of the program.
+echo $0
+
+#Checks if the value of $# is more than zero. If it is the program terminates.
+#If the value is more than zero, it proceeds to excute the else statement.
+if [ $# -lt 1 ]
+then 
+	:
+else
+		
+	#Echos the first word.
+	echo $1
+		
+	#Runs while the value of $# is more than two.
+	while [ $# -gt 2 ]
+	do
+		#Shifts two strings to the right.
+		shift
+		shift
+		#Echos the odd strings.
+		echo $1
+	done
+fi

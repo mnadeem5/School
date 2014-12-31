@@ -1,0 +1,35 @@
+/*
+ * q18.c
+ *
+ *  Created on: Dec 6, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+#include<string.h>
+
+#define LEN 20
+
+int main(void)
+{
+	char p [LEN], smallest[LEN], largest[LEN];
+	int firstTime=1;
+	while (strlen(p)!=4)
+	{
+		puts("Enter word: ");
+		gets(p);
+		if (firstTime)
+		{
+			strcpy(smallest, p);
+			strcpy(largest, p);
+			firstTime--;
+		}
+
+		if(strcmp(smallest, p)>0)strcpy(smallest, p);
+		if(strcmp(largest, p)<0)strcpy(largest, p);
+	}
+
+	puts(strcat((strcpy(p, "Smallest: ")), smallest));
+	puts(strcat((strcpy(p, "Largest: ")), largest));
+	return 0;
+}

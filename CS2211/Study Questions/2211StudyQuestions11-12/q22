@@ -1,0 +1,24 @@
+/*
+ * 22.c
+ *
+ *  Created on: Dec 2, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+
+int sum_array(const int a[] , int n);
+
+int main(void)
+{
+	int a[]={1, 2, 3, 4, 5}, n = sizeof(a)/4;
+	printf("%d", sum_array(a, n));
+	return 0;
+}
+
+int sum_array(const int a[] , int n)
+{
+	int *i=a, sum=0;
+	while (i<a+n)sum+=*i++;
+	return sum;
+}

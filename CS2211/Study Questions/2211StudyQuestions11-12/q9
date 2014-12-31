@@ -1,0 +1,44 @@
+/*
+ * q9.c
+ *
+ *  Created on: Dec 1, 2013
+ *      Author: ZiZo
+ */
+
+void change (double paid, double due, int* dollars, int* quarters, int* dimes, int* nickles, int* pennies);
+
+int main (void)
+{
+	int d, q, dimes, n, p;
+	double paid, due;
+
+	printf("Please enter the amount paid: \n");
+	scanf("%lf", &paid);
+
+	printf("Please enter the amount due: \n");
+	scanf("%lf", &due);
+
+	change(paid, due, &d, &q, &dimes, &n, &p);
+
+	printf("1$: %d, 0.25$: %d, 0.10$: %d, 0.05$: %d, 0.01$: %d", d, q, dimes, n, p);
+	return 0;
+}
+
+void change(double paid, double due, int* dollars, int* quarters, int* dimes, int* nickles, int* pennies)
+{
+	double dispense=paid-due;
+
+	*dollars=(int)dispense;
+	dispense-=*dollars;
+
+	*quarters=dispense/0.25;
+	dispense-=(0.25**quarters);
+
+	*dimes=dispense/0.1;
+	dispense-=(0.10**dimes);
+
+	*nickles=dispense/0.05;
+	dispense-=(0.05**nickles);
+
+	*pennies=dispense/0.01;
+}

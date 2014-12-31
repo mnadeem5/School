@@ -1,0 +1,23 @@
+/*
+ * q3.c
+ *
+ *  Created on: Dec 5, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+
+int main (void)
+{
+
+	//printf("*%20s*\n*%-20s*\n*%20s*\n*%-20s*\n",
+	//		"ABCDEFGH", "ABCDEFGH", "ABCDEFGH", "ABCDEFGH");
+
+	//printf("*%.5s*\n*%-.5s*\n*%.5s*\n*%-.5s*\n",
+	//		"ABCDEFGH", "ABCDEFGH", "ABCDEFGH", "ABCDEFGH");
+
+	printf("*%20.5s*\n*%-20.5s*\n*%20.5s*\n*%-20.5s*\n",
+			"ABCDEFGH", "ABCDEFGH", "ABCDEFGH", "ABCDEFGH");
+
+	return 0;
+}

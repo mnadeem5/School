@@ -1,0 +1,20 @@
+#!/bin/sh
+
+#Checks the value of $#. If it is zero the program stops and doesn't return anything.
+#If the value is more than zero, it proceeds to excute the else statement.
+
+if [ $# -lt 1 ]
+then 
+	:
+else 
+	#Checks if the value of $# is more than one.
+	#Shifts the of #$ to the next string.
+	
+	while [ $# -gt 1 ]
+	do
+		shift
+	done
+	
+	#Echos the value of the last string $1
+	echo $1
+fi

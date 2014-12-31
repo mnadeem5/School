@@ -1,0 +1,18 @@
+/*
+ * q6.c
+ *
+ *  Created on: Dec 5, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+
+int main(void)
+{
+	int i, j;
+	char s [10];
+	scanf ("%d%s%d", &i, s, &j);
+	printf("i: %d, j: %d\n",i,j);
+	puts(s);
+	return 0;
+}

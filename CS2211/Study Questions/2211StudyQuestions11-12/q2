@@ -1,0 +1,26 @@
+/*
+ * q2.c
+ *
+ *  Created on: Dec 1, 2013
+ *      Author: ZiZo
+ */
+
+int main (void)
+{
+	int i=0, *q, *p;
+
+	p=&i;
+	q=&i;
+
+	//p=i;	//a			(cast)
+	//*p=&i;//b			(cast)
+	//&p=q;	//c
+	//p=&q;	//d
+	p=*&q;	//e
+	p=q;	//f
+	//p=*q;	//g			(cast)
+	//*p=q;	//h			(cast)
+	*p=*q;	//i
+
+	return 0;
+}

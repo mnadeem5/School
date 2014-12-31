@@ -1,0 +1,23 @@
+/*
+ * q9.c
+ *
+ *  Created on: Dec 7, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+
+unsigned int reverse_bits(unsigned int n);
+
+int main (void)
+{
+	printf("0x%x", reverse_bits(0x00));
+	return 0;
+}
+
+unsigned int reverse_bits(unsigned int n)
+{
+	int i=16; unsigned int x;
+	while (i-->-1)x|=n>>i;		//(wrong)
+	return x;
+}

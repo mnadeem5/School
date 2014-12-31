@@ -1,0 +1,31 @@
+/*
+ * q7.c
+ *
+ *  Created on: Dec 5, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+#include<ctype.h>
+
+#define LEN 10
+
+void capitalize (char []);
+
+int main(void)
+{
+	char str [LEN+1] = {'a', 'b', '1', 'd'};
+	capitalize(str);
+	puts(str);
+	return 0;
+}
+
+void capitalize (char str [])
+{
+	char* p=str;
+	while (*p)
+	{
+		*p=toupper(*p);p++;
+	}
+
+}

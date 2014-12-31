@@ -1,0 +1,29 @@
+/*
+ * q21.c
+ *
+ *  Created on: Dec 2, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+
+double inner_product(const double *a, const double *b, int n);
+
+int main(void)
+{
+	double a[]={1, 2, 3, 4, 5}, b[]={5, 4, 3, 2, 1};
+	int n=sizeof(a)/4;
+
+	double sum = inner_product(a, b, n);
+
+	printf("Sum: %lf", sum);
+
+	return 0;
+}
+
+double inner_product(const double *a, const double *b, int n)
+{
+	double *p=a, *q=b, sum=0;
+	while (p<a+n)sum+=(*p++**q++);
+	return sum;
+}

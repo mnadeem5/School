@@ -1,0 +1,30 @@
+/*
+ * q4.c
+ *
+ *  Created on: Dec 1, 2013
+ *      Author: ZiZo
+ */
+
+void f1(int *p, int y);
+void f2(int *x, int *y);
+
+int main(void)
+{
+	int x, y;
+	f2(&x, &y);
+	printf("x = %d, y = %d\n", x, y);
+	return 0;
+}
+
+void f1(int *p, int y)
+{
+	int x;
+	x = 10;
+	*p = 2*x-y;
+}
+
+void f2(int *x, int *y)
+{
+	f1(x, 7);
+	f1(y, *x);
+}

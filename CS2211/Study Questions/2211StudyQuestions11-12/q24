@@ -1,0 +1,25 @@
+/*
+ * q24.c
+ *
+ *  Created on: Dec 2, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+#define LEN 3
+int sum_two_dimensional_array(const int a[][LEN], int n);
+
+int main(void)
+{
+	int a[][LEN]={{1, 1, 1},{1, 2, 1},{1, 1 ,1}}, n=sizeof(a)/4;
+	int sum=sum_two_dimensional_array(&a, n);
+	printf("%d", sum);
+	return 0;
+}
+
+int sum_two_dimensional_array(const int a[][LEN], int n)
+{
+	int *i=a, sum=0;
+	while (i<a+n/LEN)sum += *i++;
+	return sum;
+}

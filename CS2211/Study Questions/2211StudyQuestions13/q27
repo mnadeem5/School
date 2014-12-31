@@ -1,0 +1,17 @@
+/*
+ * q27.c
+ *
+ *  Created on: Dec 6, 2013
+ *      Author: ZiZo
+ */
+
+
+#include<stdio.h>
+
+int main(void)
+{
+	char text[] = "ABCDEFGHIJK";
+	char *ptr = &text[1];
+	while(*ptr++)puts(ptr++);
+	return 0;
+}

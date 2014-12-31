@@ -1,0 +1,30 @@
+/*
+ * q11.c
+ *
+ *  Created on: Dec 1, 2013
+ *      Author: ZiZo
+ */
+
+void split_time(long total_sec, int *hr, int *min, int *sec);
+
+int main (void)
+{
+	int hr, min, sec;
+	long total_sec=14234;
+
+	split_time(total_sec, &hr, &min, &sec);
+
+	printf("Hours: %d, Minutes: %d, Seconds: %d.", hr, min, sec);
+	return 0;
+}
+
+void split_time(long total_sec, int *hr, int *min, int *sec)
+{
+	*hr=total_sec/(60*60);
+	total_sec%=(60*60);
+
+	*min=total_sec/(60);
+	total_sec%=60;
+
+	*sec=total_sec;
+}

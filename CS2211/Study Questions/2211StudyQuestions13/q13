@@ -1,0 +1,30 @@
+/*
+ * q13.c
+ *
+ *  Created on: Dec 5, 2013
+ *      Author: ZiZo
+ */
+
+#include <stdio.h>
+#include <string.h>
+#include<stdlib.h>
+
+char *duplicate(const char*);
+
+int main (void)
+{
+	char str [3+1]={'a','a','b','a'};
+	char*p;
+	p=duplicate(str);
+	puts(p);
+	printf("%d", (p==str));
+
+	return 0;
+}
+
+char *duplicate(const char *p)
+{
+	char *q=malloc(5);
+	strcpy (q, p);
+	return q;
+}

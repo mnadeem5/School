@@ -1,0 +1,16 @@
+/*
+ * q10.c
+ *
+ *  Created on: Dec 6, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+
+#define POLYNOMIAL(x) ((3*(x)*(x)*(x)*(x)*(x))+(2*(x)*(x)*(x)*(x))-(5*(x)*(x)*(x))-((x)*(x)) + (7*(x))-6)
+
+int main(void)
+{
+	printf("%d", POLYNOMIAL(2-1));
+	return 0;
+}

@@ -1,0 +1,16 @@
+/*
+ * q4.c
+ *
+ *  Created on: Dec 7, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+
+#define MK_COLOR(R, G, B) (double color = (((color|B)<8)|((color|G)<8)|((color|R)<8)))
+int main (void)
+{
+	char r=1, g=1, b=1;
+	printf("%lf", MK_COLOR(r, g, b));
+	return 0;
+}

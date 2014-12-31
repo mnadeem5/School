@@ -1,0 +1,40 @@
+/*
+ * q12.c
+ *
+ *  Created on: Dec 6, 2013
+ *      Author: ZiZo
+ */
+
+#include<stdio.h>
+
+#define M 10
+
+#if M
+	#define PRINT1 (printf("1"))
+#endif
+
+#ifdef M
+	#define PRINT2 (printf("2"))
+#endif
+
+#ifndef M
+	#define PRINT3 (printf("3"))
+#endif
+
+#if defined (M)
+	#define PRINT4 (printf("4"))
+#endif
+
+#if !defined (M)
+	#define PRINT5 (printf("5"))
+#endif
+
+int main (void)
+{
+	PRINT1;
+	PRINT2;
+	//PRINT3;
+	PRINT4;
+	//PRINT5;
+	return 0;
+}

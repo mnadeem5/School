@@ -1,0 +1,32 @@
+#include <stdio.h>
+
+struct
+{
+	double a;
+	union
+	{
+		char b[4];
+		double c;
+		int d;
+	} e;
+	char f[4];
+} s;
+
+union
+{
+	double a;
+	struct
+	{
+		char b[4];
+		double c;
+		int d;
+	} e;
+	char f[4];
+} u;
+
+int main (void)
+{
+	//printf("%d", sizeof(int)+2*sizeof(double));
+	printf("%d", sizeof(u));
+	return 0;
+}
