@@ -1,0 +1,7 @@
+spaghetti 250
+oil 100
+garlic 30
+salt 10
+pepper 10
+parsley 10
+parmesan 50

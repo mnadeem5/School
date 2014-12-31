@@ -1,0 +1,50 @@
+// Create a LL that contains the integers 1,2,3,4,...,9,10
+// First insert at the beginning and then at the end
+
+
+LinearNode<integer> old,head;
+
+/***************************************/
+// Insert at the end of the linked list
+// Create 1st node using second constructor (1 actual parameter)
+// Make node.next --> null and node.element --> 1
+LinearNode<integer> node=new LinearNode<integer>(1);
+// Make head point to that node
+head=node;
+
+// Insert 2 to 10
+for(int i=2;i<=10;i++)
+{
+// Set old to current node
+// Set old.next to the current node
+// Note that node.next is set to null via the
+// constructor.
+// Note that we don't have to know about
+// next or element as these are private
+// variables --> we just call methods to 
+// manipulate them 
+// Result: head --> 1 --> 2 --> .... 9 --> 10
+old=node;
+// Create new LinearNode ovject with element i
+LinearNode<integer> node=new LinearNode<integer>(i);
+setNext(old)
+}
+
+/***************************************/
+// Insert at the beginning of the linked list
+// Create 1st node using second constructor (1 actual parameter)
+// Make node.next --> null and node.element --> 10
+// Result: head --> 1 --> 2 --> .... 9 --> 10
+LinearNode<integer> node=new LinearNode<integer>(10);
+// Make head point to that node
+head=node;
+for(int i=9;i>=1;i--)
+{
+// Create new LinearNode ovject with element i
+LinearNode<integer> new LinearNode<integer>(i);
+// Make the next pointer of that node to the head of
+// the current linked list
+setNext(head);
+// Make the new head of the linked list be that node
+head=node;
+}

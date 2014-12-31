@@ -1,0 +1,10 @@
+# another I program
+v a b c r s t
+a=2
+b=3
+c=4
+r=abc**
+s=ab*c*
+t=a*bc*
+p "a=" a "b=" b "c=" c
+p "r=" r "s=" s "t=" t
