@@ -1,0 +1,93 @@
+1	a) (a > 0) &&  (b > 0) 
+	b) ('a' > c)  != ('E' != c) 
+	c) (a > b) ^ (t == (c > 's')) 
+	d) (a % b != 0) == (b * 2 > a)
+	e) (t ^ !(a > b)) && t 
+
+2	public class EnterCorrectInput2 
+	{ 
+  		public static void main(String[] args) 
+  		{ 
+    			int num;     
+    			boolean cont = true;
+    			System.out.println("We want a number between 1 and 100 inclusive.");  
+    			while (cont) 
+    			{ 
+      				num = SimpleInput.getIntNumber("Enter number: "); 
+      				if (num>0&&num<101) 
+      				{ 
+        				cont = false; 
+        				System.out.println("The number you entered is " + num); 
+      				} 
+    			} 
+  		} 
+	} 
+
+
+3	public class copyExceptWhiteTry
+	{ 
+  		public static void main (String[] args)  
+  		{ 
+    		String moon = FileChooser.pickAFile() ; 
+    		Picture pictureMoon = new Picture(moon);
+    		String robot = FileChooser.pickAFile() ; 
+    		Picture pictureRobot = new Picture(robot);
+    		pictureMoon.show();
+   		pictureRobot.copyExceptWhite(pictureMoon, 0, 0);
+    		pictureMoon.repaint();
+  		}
+	}
+
+
+	public void copyExceptWhite (Picture sourcePicture, int xStart, int yStart)
+	{
+  		Pixel sourcePixel = null;
+  		Pixel targetPixel = null;
+  		try
+		{
+    			for (int sourceX = 0, targetX = xStart; sourceX < sourcePicture.getWidth(); sourceX++, targetX++)
+    			{
+      				for (int sourceY = 0,targetY = yStart; sourceY < sourcePicture.getHeight();sourceY++, targetY++)
+      				{
+      					sourcePixel = sourcePicture.getPixel(sourceX,sourceY);
+      					targetPixel = this.getPixel(targetX,targetY);
+      					if (sourcePixel.getColor() != Color.WHITE)
+        				{
+          					targetPixel.setColor(sourcePixel.getColor());
+        				}
+      				} 
+    			}
+  		}
+		catch(IndexOutOfBoundsException ex){System.out.println("Either xStart or yStart is out of bounds");System.exit(0);}
+	}
+
+4	public class blueExtremesTry
+	{ 
+  		public static void main (String[] args)  
+  		{ 
+    			String fileName = FileChooser.pickAFile() ; 
+    			Picture pictureObj = new Picture(fileName);
+    			pictureObj.blueExtremes();
+    			pictureObj.explore();
+  		}
+	}
+
+	public void blueExtremes()
+	{
+  		Pixel pixelObj=null; 
+  		for (int x = 0; x < this.getWidth(); x++)  
+  		{ 
+    			for (int y = 0; y < this.getHeight(); y++)   
+    			{ 
+      				pixelObj = this.getPixel(x,y);
+      				if (pixelObj.getBlue()<128)
+      				{
+        				pixelObj.setBlue(0);
+      				}
+      				else 
+      				{
+        			pixelObj.setBlue(255);
+      				}
+    			}
+  		}
+	}

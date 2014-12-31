@@ -1,0 +1,46 @@
+1	b) 	System.out.println(test.charAt(1));
+
+	c) 	for (int i =0; i<test.length(); i++) System.out.println(test.charAt(test.length()-i));
+
+	d) 	for (int j =0; j<test.length(); j++) System.out.print(test.charAt(test.length()-j-1));
+
+2	b)	if  (str1.equals(str2))System.out.println("The strings are the same"); 
+       		else System.out.println("The strings are different");
+
+	c)	if  (str2.equals(str3))System.out.println("The strings are the same"); 
+       		else System.out.println("The strings are different");
+
+3	d)	System.out.println(lineArray[2]);
+	
+	e) 	A pop-up window pops up and tell you to choose another file because the file you requested does not exist.
+
+4		import java.io.*; 
+		public class ReadandPrintFromFile 
+		{  
+  			public static void main(String[] args) 
+  			{ 
+    				SimpleReader reader = new SimpleReader("test.txt"); 
+    				String [] lineArray = reader.readFile(); 
+    				for (int i = 0; i < reader.getFileLength() ; i++)System.out.println(lineArray[i] +  "\n"); 
+  			} 
+		}
+
+5	c)	String lastName = tokenizer.nextToken(); 
+		System.out.println(lastName);
+
+	d)	String userName = tokenizer.nextToken(); 
+		System.out.println(userName); 
+
+	e)	System.out.println(lastName+", "+firstName+". And his/her username is "+userName);
+
+	f)	String [] lineArray = new String [4];  
+		lineArray[0] = ("Homer Simpson hsimpson");
+ 		lineArray[1] = ("Lisa Simpson  lsimpson");
+ 		lineArray[2] = ("Bart Simpson  bsimpson");
+ 		lineArray[3] = ("Marge Simpson msimpson");
+
+		StringTokenizer tokenizer0 = new StringTokenizer(lineArray[1]); 
+		String firstName0 = tokenizer0.nextToken();
+		String lastName0 = tokenizer0.nextToken();
+		String userName0 = tokenizer0.nextToken();
+		System.out.println(lastName0+", "+firstName0+". And his/her username is "+userName0);

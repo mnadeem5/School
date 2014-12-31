@@ -1,0 +1,92 @@
+1)	for (int row = 1;  row <= 5; row ++) 
+	{ 
+   		for (int count = 0; count < 9; count ++) 
+   		{ 
+   	 		System.out.print("*"); 
+   		} 
+		System.out.println(); 
+
+		}
+
+ 	It prints out the value of row
+
+	for (int row = 1;  row <= 5; row ++) 
+	{ 
+   		for (int count = 0; count < row; count ++) 
+   		{ 
+    		System.out.print("*"); 
+   	} 
+	System.out.println(); 
+	}
+
+
+
+2)	String filename = FileChooser.pickAFile();
+	Picture pictureObj = new Picture (filename);
+	pictureObj.explore();
+	Pixel[] pixelArray = pictureObj.getPixels();
+	System.out.println("The number of pixels in the image is " + pixelArray.length);
+
+	for (int i=0;i < 100;i++) 
+	{ 
+   		Pixel pixelObj = pixelArray[i]; 
+   		System.out.println("At position "+i+" pixel at ("+ pixelObj.getX()+","+pixelObj.getY()+") colour is: " + pixelObj.getColor()); 
+	}
+	 
+	for (int i=1;i < 100;i+=2) 
+	{ 
+   		Pixel pixelObj = pixelArray[i]; 
+   		System.out.println("At position "+i+" pixel at ("+ pixelObj.getX()+","+pixelObj.getY()+") colour is: " + pixelObj.getColor()); 
+	} 
+
+
+3)	public void decreaseRed()
+  	{
+    		Pixel[] pixelArray = this.getPixels();
+    		Pixel pixelObj = null;
+    		double value;
+    		for(int index=0; index < pixelArray.length; index++)
+    		{
+      			pixelObj = pixelArray[index];
+      			value = pixelObj.getRed()*0.8;
+      			pixelObj.setRed((int)value);
+    		}
+  	}
+
+	String fileName = FileChooser.pickAFile(); 
+	Picture pictureObj = new Picture(fileName); 
+	pictureObj.explore(); 
+	pictureObj.decreaseRed; 
+	pictureObj.explore();
+
+
+	public void changeRed(double howMuch) 
+  	{
+    		Pixel[] pixelArray = this.getPixels();
+    		Pixel pixelObj = null;
+    		double value;
+    		for(int index=0; index < pixelArray.length; index++)
+    		{
+      			pixelObj = pixelArray[index];
+      			value = pixelObj.getRed()*howMuch;
+      			pixelObj.setRed((int)value);
+    		}
+  	}
+	String fileName = FileChooser.pickAFile(); 
+	Picture pictureObj = new Picture(fileName); 
+	pictureObj.explore(); 
+	pictureObj.changeRed(2.00); 
+	pictureObj.explore();
+
+5)      public void clearBlue2() 
+	{ 
+    		Pixel pixelObj=null; 
+    		for (int x = 0; x < this.getWidth(); x++)  
+    		{ 
+       			for (int y = 0; y < this.getHeight(); y++)   
+       			{ 
+        			pixelObj = this.getPixel(x,y);
+        			pixelObj.setRed(0); 
+       			}
+    		}
+	}   

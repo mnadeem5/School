@@ -1,0 +1,16 @@
+1	a)	public int countNonWhitePixels()
+		{
+			Pixel pixelObj; 
+   			int counter = 0;  
+      			for (int x = 0; x < this.getWidth(); x++)  
+      			{ 
+       				for (int y = 0; y < this.getHeight(); y++)   
+        			{ 
+          				pixelObj = this.getPixel(x,y); 
+       					if (pixelObj.getRed()==0 && pixelObj.getGreen()==0 && pixelObj.getBlue()==0)
+					counter++;
+				}                			
+				      
+      			}  
+    			return counter; 
+   		}

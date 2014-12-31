@@ -1,0 +1,103 @@
+1	a) The integer is casted to a double, it recognizes that its not a number and asks to you enter a number
+	b) The program recognizes that its not an integer and asks you to input an integer.
+	c) The number is recognized as a string because a string can be any character.
+
+2	a)
+
+	public class CentigradeToFahrenheit 
+	{ 
+          public static void main (String[] args)  
+          { 
+		double temperature = SimpleInput.getNumber("Enter Double Number: ");
+		double fdegrees = (temperature/5.0)* 9.0 + 32; 
+		System.out.print(temperature + " degrees C is "); 
+		System.out.println(fdegrees + " degrees F"); 
+          } 
+        } 
+
+	The program doesn't move to the next code line unless the input is an integer/double.
+
+
+	b) 
+
+	public class CentigradeToFahrenheit 
+	{ 
+          public static void main (String[] args)  
+          { 
+		double temperature = SimpleInput.getNumber("Enter Double Number: ");
+		double fdegrees = (temperature/5.0)* 9.0 + 32; 
+		SimpleOutput.showInformation(temperature + " degrees C is "+fdegrees + " degrees F");
+          } 
+        }
+ 
+3	a)
+
+	public class EnterCorrectInput 
+	{ 
+  		public static void main(String[] args) 
+  		{ 
+     			System.out.println("We want a number between 1 and 100 inclusive."); 
+     			int num=0; 
+     			while (num<1 || num>100)
+     			{
+       				num = SimpleInput.getIntNumber("Enter number: "); 
+     			}
+     			System.out.println("The number you entered is " + num); 
+  		} 
+	}
+
+
+	b)
+
+	public class EnterCorrectInput 
+	{ 
+  		public static void main(String[] args) 
+  		{ 
+     			System.out.println("We want a number between 1 and 100 inclusive."); 
+     			int num = SimpleInput.getIntNumber("Enter number: "); 
+     			if (num<1 || num>100)
+     			{
+       				System.out.println("The number you entered is " + num); 
+     			}
+     			else 
+     			{
+       				System.out.println(num + " is not between 1-100"); 
+     			}
+  		} 
+	}
+	
+
+4	b) Left to right.
+
+	c)
+	public void mirrorVerticalRightToLeft()
+	{ 
+  		int mirrorPoint = this.getWidth()/2; 
+  		Pixel leftPixel = null; 
+  		Pixel rightPixel = null; 
+  		for (int y = 0; y < this.getHeight(); y++) 
+  		{ 
+    			for (int x = mirrorPoint; x > 0; x--) 
+    			{  
+      			leftPixel = this.getPixel(x,y); 
+      			rightPixel = this.getPixel(this.getWidth()-1-x, y); 
+      			leftPixel.setColor(rightPixel.getColor()); 
+    			} 
+  		} 
+ 	} 
+
+	d)
+
+	public class TestMirroring 
+	{ 
+  		public static void main(String[] args) 
+  		{ 
+    			String fileName = FileChooser.pickAFile() ; 
+    			Picture pictureObj = new Picture(fileName), pictureObj2 = new Picture(fileName); 
+    			pictureObj.explore(); 
+    			pictureObj.mirrorVertical();
+    		pictureObj.explore();
+    		pictureObj2.mirrorVerticalRightToLeft();
+    		pictureObj2.explore();
+ 		} 
+	} 
